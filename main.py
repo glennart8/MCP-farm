@@ -17,4 +17,5 @@ for step in range(5):
     result = env.apply(action)
     print("Resultat:", result)
 
+    print("/n")
     time.sleep(1)

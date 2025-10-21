@@ -14,6 +14,11 @@ class Agent:
 
     def decide(self, observation):
         notes = observation["notes"]
+        
+        if len(notes) > 10:
+            return self.summarize_notes(notes)
+        
+        
         prompt = f"""
                 Du är en AI-agent som styr en lista med anteckningar.
                 Nuvarande anteckningar: {json.dumps(notes, ensure_ascii=False)}
@@ -24,7 +29,7 @@ class Agent:
                 3. Ta bort en anteckning: {{"type": "remove", "content": "Onödig anteckning"}}
 
                 Välj EN åtgärd som verkar vettig. Returnera **endast JSON**.
-                Det ska helst inte finnas fler än 20 st antecknignar.
+                Det ska helst inte finnas fler än 30 st anteckningar.
                         """
 
         response = self.client.chat.completions.create(
@@ -44,7 +49,53 @@ class Agent:
         try:
             action = json.loads(raw)
         except json.JSONDecodeError:
-            print("⚠️ Kunde inte tolka svaret som JSON:", raw)
+            print("Kunde inte tolka svaret som JSON:", raw)
             action = {"type": "add", "content": "Fel i JSON-parsning"}
 
         return action
+
+
+    def summarize_notes(self, notes):
+        """
+        Sammanfatta alla anteckningar i en mening.
+        Returnerar en action som Environment kan tolka.
+        """
+        prompt = f"""
+                Du är en AI-agent som sammanfattar en lista med anteckningar.
+                Nuvarande anteckningar: {json.dumps(notes, ensure_ascii=False)}
+
+                Returnera en JSON med formatet:
+                {{"type": "update", "index": 0, "content": "Sammanfattad anteckning"}}
+                Endast JSON, inget annat.
+                """
+        response = self.client.chat.completions.create(
+            model="gemini-2.5-flash",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.7,
+        )
+
+        raw = response.choices[0].message.content.strip()
+
+        if raw.startswith("```json"):
+            raw = raw[len("```json"):].strip()
+        if raw.endswith("```"):
+            raw = raw[:-3].strip()
+
+        try:
+            action = json.loads(raw)
+        except json.JSONDecodeError:
+            print(" Kunde inte tolka svaret som JSON:", raw)
+            action = {"type": "update", "index": 0, "content": "Fel i JSON-parsning"}
+
+        return action
+
+
+    def prioritize_notes(self, notes):
+        """Sortera anteckningarna efter viktighet."""
+        # Skapa prompt till LLM, t.ex. 'Sortera viktigast först'
+        ...
+
+    def search_web(self, query):
+        """Sök på webben (eller via API) och returnera relevant info."""
+        # T.ex. använd ett web scraping-API eller Google Custom Search API
+        ...

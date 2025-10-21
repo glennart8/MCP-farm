@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Bygga växthus",
+    "priority": 1,
+    "description": "Att bygga ett växthus innebär att konstruera en skyddad miljö för odling av växter som kräver specifika klimatförhållanden eller för att förlänga odlingssäsongen. Det kan vara allt från ett litet hobbyväxthus till en större professionell anläggning.",
+    "preparations": "Välj lämplig plats (soligt, skyddat från stark vind, god dränering). Bestäm storlek och design baserat på behov och budget. Skaffa ritningar och bygglov om det behövs. Köp in material som stomme (trä, aluminium, stål), beklädnad (glas, polykarbonat), grundmaterial, skruvar, tätningslister, ventiler och dörrar. Samla ihop nödvändiga verktyg såsom spade, vattenpass, skruvdragare, såg, mätband och skyddsutrustning.",
+    "practical_desc": "Börja med att förbereda marken genom att jämna till och eventuellt gräva för en stabil grund (exempelvis plintar, mur eller gjuten sula). Bygg stommen enligt ritningarna, se till att den är i våg och vinkel. Montera därefter beklädnaden, var noga med att fästa den ordentligt och täta alla skarvar för att undvika värmeförluster och drag. Installera dörrar och fönster/ventilationsluckor. Avsluta med att montera eventuell inredning som hyllor, odlingsbäddar och bevattningssystem.",
+    "grants": "Beroende på lokala bestämmelser och växthusets syfte kan det finnas möjligheter till bidrag. Exempelvis kan vissa kommuner erbjuda stöd för hållbara byggprojekt eller projekt som främjar lokal odling och biologisk mångfald. Kontakta din kommun eller länsstyrelse för att undersöka om det finns specifika investeringsstöd eller 'gröna bidrag' för byggnation av växthus, särskilt om det är för kommersiellt bruk eller integrerat i ett större hållbarhetsprojekt."
+  },
+  {
+    "title": "Sätta potatis",
+    "priority": 1,
+    "description": "Att sätta potatis innebär att plantera förgrodda potatisar eller sättpotatisar i jord för att odla nya potatisar. Det är en grundläggande trädgårdsuppgift som kräver rätt förberedelser för en god skörd och för att undvika sjukdomar.",
+    "preparations": "1. Välj rätt sort av sättpotatis anpassad för lokalt klimat och önskad skörd (tidig, mellan eller sen). 2. Förgrodda potatisarna inomhus i ljus men sval miljö (ca 8-15°C) i 2-4 veckor tills de får korta, kraftiga groddar. 3. Förbered jorden: Den ska vara väldränerad, lucker och näringsrik. Gräv upp en fåra eller förbered en bädd. Jorden bör ha en temperatur på minst 8°C. 4. Kontrollera väderprognosen för att undvika nattfrost efter plantering. 5. Samla verktyg: spade, hacka/kultivator, eventuellt gödsel.",
+    "practical_desc": "1. Gräv fåror som är ca 10-15 cm djupa. Avståndet mellan fårorna bör vara 60-80 cm beroende på potatissort och odlingsmetod. 2. Placera sättpotatisarna i fåran med groddarna uppåt. Avståndet mellan potatisarna i fåran bör vara 20-30 cm för tidig potatis och 30-40 cm för sen potatis. 3. Täck potatisarna med jord så att de är helt dolda. Vattna vid behov om jorden är mycket torr. 4. När blasten börjar växa upp (ca 10-15 cm hög), kupa jorden runt plantorna. Detta skyddar potatisarna från solljus (förhindrar grönfärgning) och främjar rotutveckling. Upprepa kupningen 1-2 gånger under säsongen. 5. Håll ogräs borta och vattna regelbundet vid torka för att säkerställa god skörd.",
+    "grants": "Tillgång till lämplig odlingsmark (trädgårdsland, pallkrage, större kruka), tillgång till sättpotatis av god kvalitet, tillgång till trädgårdsredskap (spade, hacka/kultivator), kunskap om lokala väderförhållanden och jordmån."
+  },
+  {
+    "title": "Registrera djurhållning specifikt för får",
+    "priority": 1,
+    "description": "Registrering av en anläggning för djurhållning specifikt för får hos behörig myndighet (t.ex. Jordbruksverket i Sverige). Syftet är att officiellt anmäla var får hålls, för att möjliggöra spårbarhet och efterlevnad av djurskydds- och smittskyddsregler.",
+    "preparations": "Innan registrering behöver djurhållaren identifiera sig (person- eller organisationsnummer), ha tillgång till uppgifter om anläggningens exakta geografiska plats (adress, eventuella koordinater), uppskatta antal djur och veta vilken typ av djurhållning det rör sig om (t.ex. hobby, kommersiell). Det är också bra att känna till relevanta lagar och förordningar för fårhållning.",
+    "practical_desc": "Besök den behöriga myndighetens webbplats (t.ex. Jordbruksverket) och navigera till tjänsten för registrering av djurhållning. Logga in med e-legitimation (t.ex. BankID). Fyll i formuläret med följande information: djurhållarens uppgifter, anläggningens adress och/eller fastighetsbeteckning, djurslag (får), syfte med hållningen samt uppskattat antal djur. Granska informationen och skicka in ansökan. En bekräftelse och eventuellt ett anläggningsnummer erhålls efter godkänd registrering.",
+    "grants": "Rättigheten att utföra denna uppgift tillkommer den person eller organisation som är ansvarig för djurhållningen (djurhållaren). För att logga in och skicka in ansökan krävs personlig e-legitimation (t.ex. BankID) för privatpersoner, eller behörighet via firmatecknare/ombud för organisationer."
+  }
+]
