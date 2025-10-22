@@ -6,6 +6,13 @@
     - Lägger till en kort beskrivning / rekommendation bredvid varje uppgift.
     - Sorterar listan efter prioritet (t.ex. säsong, ekonomi, regler).
 
+# Eventuella TODOS
+    [x] LLM skapar nya uppgifter 
+    [] Kunna lägga till en titel och prio, låta llm generera resten
+    [] Skapa frontend i streamlit alt enkel .exe
+    
+
+
 # Andra intressanta användningsområden:
 
 - lägga in recept och låta llm kategorisera efter land/kök och även sammanfatta texten

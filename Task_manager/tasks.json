@@ -22,5 +22,61 @@
     "preparations": "Innan registrering behöver djurhållaren identifiera sig (person- eller organisationsnummer), ha tillgång till uppgifter om anläggningens exakta geografiska plats (adress, eventuella koordinater), uppskatta antal djur och veta vilken typ av djurhållning det rör sig om (t.ex. hobby, kommersiell). Det är också bra att känna till relevanta lagar och förordningar för fårhållning.",
     "practical_desc": "Besök den behöriga myndighetens webbplats (t.ex. Jordbruksverket) och navigera till tjänsten för registrering av djurhållning. Logga in med e-legitimation (t.ex. BankID). Fyll i formuläret med följande information: djurhållarens uppgifter, anläggningens adress och/eller fastighetsbeteckning, djurslag (får), syfte med hållningen samt uppskattat antal djur. Granska informationen och skicka in ansökan. En bekräftelse och eventuellt ett anläggningsnummer erhålls efter godkänd registrering.",
     "grants": "Rättigheten att utföra denna uppgift tillkommer den person eller organisation som är ansvarig för djurhållningen (djurhållaren). För att logga in och skicka in ansökan krävs personlig e-legitimation (t.ex. BankID) för privatpersoner, eller behörighet via firmatecknare/ombud för organisationer."
+  },
+  {
+    "title": "Bygga fårhus",
+    "priority": 1,
+    "description": "Uppförande av ett funktionellt och djurvänligt fårhus som skyddar fåren mot väder och vind samt erbjuder en säker och bekväm miljö. Projektet syftar till att skapa en hållbar lösning med god ventilation och effektiv hantering för djurskötaren.",
+    "preparations": "Detaljerad planering av fårhusets storlek, placering (med hänsyn till sol, vind, dränering och tillgänglighet) och design. Inhämtning av nödvändiga bygglov och eventuella miljötillstånd. Budgetering och inköp av material såsom virke, takbeklädnad, isolering, dörrar och fönster. Förberedelse av byggplatsen genom röjning, markutjämning och eventuell anläggning av grund.",
+    "practical_desc": "Arbetet inleds med grundläggning och uppförande av bärande konstruktioner för väggar och tak. Därefter monteras takstolar och takbeklädnad, följt av väggbeklädnad, dörrar och fönster. Installation av ventilation och eventuell isolering. Inredningsarbeten inkluderar uppförande av foderplatser, liggytor, eventuella avdelningar och vattenförsörjning. Avslutande arbeten som målning eller ytbehandling samt anläggning av anslutande hage och dränering.",
+    "grants": "Möjlighet att söka investeringsstöd för byggnader inom jordbruket via Jordbruksverket eller Länsstyrelsen, exempelvis genom landsbygdsprogrammet (EU:s jordbruksfond för landsbygdsutveckling). Bidrag kan även finnas för åtgärder som främjar djurvälfärd, hållbarhet eller användning av lokala byggmaterial."
+  },
+  {
+    "title": "Mocka stallet i stora ladan",
+    "priority": 2,
+    "description": "Stallet i stora ladan behöver mockas grundligt för att säkerställa god hygien och komfort för djuren. Detta är en rutinmässig uppgift som bidrar till djurens välmående och en ren gårdsmiljö.",
+    "preparations": "Kontrollera att det finns tillräckligt med ren ströbädd (spån/halm) tillgänglig. Se till att skottkärra, grep och gaffel är framme och i gott skick. Säkerställ att djuren kan flyttas ut ur stallet under tiden arbetet pågår.",
+    "practical_desc": "Börja med att leda ut djuren till hage eller annan säker plats. Använd grep och gaffel för att avlägsna all våt och smutsig ströbädd samt avföring. Lägg det i skottkärran och töm på gödselstacken. Skrapa rent golvet och sprid sedan ut ett jämnt och tjockt lager ny, ren ströbädd. Se till att alla hörn är rena och att ströbädden är jämn över hela ytan. Fyll på färskt vatten i vattenkaren och ställ tillbaka djuren.",
+    "grants": "Bidrar till djurvälfärd, en ren och välskött gårdsmiljö, samt fysisk motion."
+  },
+  {
+    "title": "Rengöring av stallboxar",
+    "priority": 2,
+    "description": "Stallboxarna behöver rengöras grundligt för att upprätthålla god hygien och djurens välbefinnande. Detta innebär att avlägsna gammal ströbädd och avföring, samt att fylla på med ny, fräsch strö.",
+    "preparations": "Säkerställ att det finns tillräckligt med ny strö (t.ex. halm eller spån) tillgängligt. Kontrollera att redskap som grep, skottkärra, kvast och skyffel är rena och i gott skick. Djuren bör flyttas ut till en hage eller tillfälligt till en annan box innan arbetet påbörjas.",
+    "practical_desc": "Börja med att se till att alla djur är ute ur boxarna. Använd grepen för att samla ihop och avlägsna all gammal strö och avföring. Lasta det på skottkärran och transportera det till gödselstacken. När boxarna är tömda, borsta rent golvet och väggarna från eventuella rester. Sprid sedan ut ett jämnt och generöst lager av ny, ren strö i varje box. Kontrollera även att vattenkoppar och foderkrubbor är rena.",
+    "grants": "Tillgång till stallbyggnaden, grep, skottkärra, kvast, skyffel, ren strö (halm/spån), gödselstack, och möjlighet att flytta djuren temporärt."
+  },
+  {
+    "title": "Stallrengöring hästar",
+    "priority": 2,
+    "description": "Daglig rengöring av hästboxar och stallgång för att upprätthålla god hygien, minimera lukt och förebygga sjukdomar. Detta inkluderar borttagning av gödsel och vått strö, samt påfyllning av nytt, torrt strö.",
+    "preparations": "Kontrollera att hästarna är ute i hagen eller säkert bundna. Samla ihop nödvändiga verktyg: grep, skyffel, skottkärra, kvast. Se till att det finns tillräckligt med nytt strö (t.ex. spån eller halm) tillgängligt. Kläder som tål smuts och damm, samt handskar rekommenderas.",
+    "practical_desc": "Börja med att öppna boxdörren och se till att den är säkrad. Använd grepen för att noggrant identifiera och ta bort alla gödselhögar och våta fläckar i ströbädden. Lasta allt avfall direkt i skottkärran. När boxen är tillräckligt ren, sopa ut eventuellt kvarvarande smuts och damm från gången. Fyll sedan på med nytt, torrt strö jämnt över hela boxen till önskad nivå för att skapa en mjuk och ren bädd. Töm skottkärran på den anvisade gödselstacken och rengör verktygen innan de ställs tillbaka på sin plats.",
+    "grants": "Fysisk styrka och uthållighet (tunga lyft och repetitiva rörelser). Noggrannhet (viktigt för djurens hälsa). Förmåga att arbeta systematiskt och självständigt. God hygienmedvetenhet."
+  },
+  {
+    "title": "Laga hål i taket på ladan",
+    "priority": 1,
+    "description": "Att reparera ett skadat område på ladans tak för att förhindra vattenläckage och ytterligare strukturella skador. Målet är att återställa takets integritet och funktion.",
+    "preparations": "Inspektera skadan noggrant för att bedöma omfattning, materialtyp (t.ex. plåt, pannor) och behov av underliggande reparationer. Skaffa nödvändigt material som takplåt, takpannor, tätningsmassa, skruvar, samt eventuellt träreglar om takkonstruktionen är skadad. Samla ihop verktyg som stege, hammare, skruvdragare, plåtsax/vinkelslip, måttband, penna och personlig skyddsutrustning (handskar, skyddsglasögon, fallskydd vid behov). Säkerställ en stabil och säker arbetsplats.",
+    "practical_desc": "Rengör området runt hålet från smuts, löv och lösa material. Om nödvändigt, ta bort skadade takpannor eller plåtar samt eventuellt ruttnande trä under. Mät och skär till nytt takmaterial (t.ex. plåt eller pannor) så att det överlappar det befintliga taket med god marginal för att säkerställa täthet. Fäst det nya materialet säkert med lämpliga skruvar eller fästanordningar. Använd tätmassa runt fogar och skruvhuvuden för extra vattenskydd. Kontrollera att reparationen är stabil, tät och estetiskt acceptabel.",
+    "grants": "För mindre reparationer på en befintlig lada krävs oftast inga specifika bygglov. Om ladan däremot är kulturminnesmärkt, ligger inom ett detaljplanerat område med särskilda bestämmelser, eller om reparationen innebär större strukturella förändringar, kan bygglov eller anmälan till kommunen krävas. Kontrollera alltid med din kommun för att vara säker. Säkerställ att arbetet utförs enligt gällande arbetsmiljöregler, särskilt vid arbete på höjd."
+  },
+  {
+    "title": "Fodermixning och utfodring av nötkreatur",
+    "priority": 2,
+    "description": "Säkerställa att gårdens nötkreatur får en balanserad och näringsrik kost enligt utfodringsplanen för optimal hälsa och tillväxt. Detta är en daglig rutin som är avgörande för djurens välfärd och produktivitet.",
+    "preparations": "Kontrollera aktuella utfodringsrecept och mängder för varje djurgrupp (t.ex. mjölkkor, ungdjur, tjurar). Säkerställ att foderkammaren är välsorterad med ensilage, kraftfoder och mineraler. Kontrollera att fodermixervagnen är tom och rengjord från föregående utfodring. Förbered eventuella medicinska tillsatser om sådana föreskrivits av veterinär.",
+    "practical_desc": "1. Kör fram fodermixervagnen till foderkammaren. 2. Ladda ensilage i fodermixern enligt receptet (t.ex. med frontlastare). 3. Tillsätt kraftfoder (spannmål, proteinfoder) och mineraler från säckar eller silo. 4. Starta mixern och låt den blanda i 5-10 minuter tills en homogen mix uppnåtts. 5. Kör fodermixervagnen till djurstallarna. 6. Fördela fodret jämnt längs foderborden för respektive djurgrupp, anpassa mängden efter antalet djur och deras behov. 7. Kontrollera att alla djur har tillgång till fodret och att det inte finns spår av gammalt foder som behöver rensas bort. 8. Rengör fodermixervagnen efter användning och parkera den på avsedd plats.",
+    "grants": "Kunskap om djurhållning och nötkreaturens näringsbehov. Erfarenhet av att hantera lantbruksmaskiner (frontlastare, fodermixervagn). Förståelse för vikten av precision och hygien i foderhantering. Tillfredsställelse av att bidra till djurens välmående och gårdens produktivitet."
+  },
+  {
+    "title": "Mocka ur stora stallet och fylla på med ny strö",
+    "priority": 2,
+    "description": "Det stora stallet, där hästarna står, behöver en grundlig mockning. All gammal, blöt och smutsig ströbädd ska avlägsnas och ersättas med ny, fräsch spån. Det är viktigt för djurens hälsa och välbefinnande att stallet hålls rent och torrt.",
+    "preparations": "Kontrollera att det finns tillräckligt med ny spån i spånförrådet. Hämta en rejäl grep, en skottkärra, en kvast och arbetshandskar. Se till att djuren är ute i hagen eller säkert undanställda under arbetet.",
+    "practical_desc": "Börja med att med grepen skrapa ihop all blöt och smutsig ströbädd i varje box. Fyll skottkärran och töm den på gödselstacken. Fortsätt tills alla boxar är tömda på gammal strö och golvet är synligt rent. Borsta sedan golvet med kvasten för att få bort mindre rester. Avslutningsvis, fyll på med ett jämnt och generöst lager ny, torr spån i varje box. Se till att det är extra tjockt där djuren brukar ligga. Se till att vattenkopparna är rena och fungerar.",
+    "grants": "Fysiskt arbete, djurvård, hygien, ansvar."
   }
 ]

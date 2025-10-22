@@ -10,6 +10,7 @@ class Environment:
         try:
             with open(self.data_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
+                # Skapar Task-objekt  och sparar de i listan tasks
                 self.tasks = [Task(**t) for t in data]
         except FileNotFoundError:
             self.tasks = []  # starta tomt om fil saknas
@@ -18,14 +19,14 @@ class Environment:
 
     def _save_tasks(self):
         with open(self.data_file, "w", encoding="utf-8") as f:
-            json.dump([t.dict() for t in self.tasks], f, ensure_ascii=False, indent=2)
+            json.dump([t.model_dump() for t in self.tasks], f, ensure_ascii=False, indent=2)
 
     def get_state(self):
         # Returnera en lista av dicts för agenten
-        return {"tasks": [t.dict() for t in self.tasks]}
+        return {"tasks": [t.model_dump() for t in self.tasks]}
 
-    def add_task(self, title: str, priority: int):
-        task = Task(title=title, priority=priority)
+    def add_task(self, title: str, priority: int, **kwargs):
+        task = Task(title=title, priority=priority, **kwargs)
         self.tasks.append(task)
         self._save_tasks()
         return task
