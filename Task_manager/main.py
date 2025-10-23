@@ -8,6 +8,63 @@ agent = Agent()
 
 # new_task=env.add_task(title="Bygga fårhus", priority=1)
 
+
+while True:
+    choice = input("""Vad vill du göra?
+                   1. Vissa alla uppgifter
+                   2. Lägg till uppgift
+                   3. Generera utförlig beskrivning av uppgift
+                   4. Generera ny uppgift (gemnini)
+                   5. Avsluta
+                   """)
+
+    if choice == "1":
+        # Lägg till möjlighet att läsa fullständig info
+        for i, t in enumerate(env.tasks):
+            print(f"{i}: {t.title} (prio {t.priority})")
+
+    elif choice == "2":
+        print("\nLägg till uppgift:")
+        title = input("Titel: ")
+        priority = input("Prioritet (1 – 5): ")
+        try:
+            priority = int(priority)
+        except ValueError:
+            priority = 1  # sätter default om ingen int skrevs in
+
+        new_task = env.add_task(title=title, priority=priority)
+        print(f"Uppgiften '{new_task.title}' har skapats.\n")
+        
+            
+    elif choice == "3":
+        # Visa tasks
+        for i, t in enumerate(env.tasks):
+            print(f"{i}: {t.title}")
+            
+        task_to_edit = int(input("\nVilken task vill du generera mer info för (ange index): "))
+        print(f"\nDu uppdaterar: {env.tasks[task_to_edit].title}")
+
+        # Agenten skapar saknade fält
+        task_update = agent.enrich_task_info(env.tasks[task_to_edit].title)
+
+        # Uppdaterar den valda uppgiften i miljön
+        env.update_task(task_to_edit, **task_update.model_dump())
+
+        print(f"\nUppgiften '{env.tasks[task_to_edit].title}' har uppdaterats.")    
+    elif choice == "4":
+        pass
+    elif choice == "5":
+        break
+
+
+
+
+
+
+if __name__ == "__main__":
+    pass
+
+
 for step in range(3):  
     print(f"\n=== Steg {step + 1} ===")
     

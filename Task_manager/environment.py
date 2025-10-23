@@ -10,7 +10,7 @@ class Environment:
         try:
             with open(self.data_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # Skapar Task-objekt  och sparar de i listan tasks
+                # Skapar Task-objekt och sparar de i listan tasks
                 self.tasks = [Task(**t) for t in data]
         except FileNotFoundError:
             self.tasks = []  # starta tomt om fil saknas
@@ -37,3 +37,4 @@ class Environment:
                 setattr(self.tasks[index], key, value)
         self._save_tasks()
         return f"Updated: {self.tasks[index].title}"
+    

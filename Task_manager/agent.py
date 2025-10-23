@@ -12,12 +12,15 @@ class Agent:
             api_key=os.getenv("GEMINI_API_KEY"),
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
         )
+    
+    # def add_task(self, title: str, priority: int):
+    #     task = Task(title=title, priority=priority)
         
     def create_a_proper_task(self):
         prompt = f"""
-            Skapa en ny passande uppgift med fälten title, priority, description, preparations, practical_desc och grants.
+            Skapa EN ny passande uppgift med fälten title, priority, description, preparations, practical_desc och grants.
             Det ska vara en typisk uppgift som tillhör ett gårdsbruk, exempelområden är:
-            - djurhållning
+            - djurhållning med höns, får, ankor
             - odling
             - skogsarbete
             - byggnation
@@ -55,6 +58,7 @@ class Agent:
     
 
     def decide_what_to_do(self, observation):
+        # Laddar in alla info om alla tasks
         tasks = observation["tasks"]
 
         for i, t in enumerate(tasks):
@@ -86,7 +90,7 @@ class Agent:
         response = self.client.chat.completions.create(
             model="gemini-2.5-flash", 
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.7,
+            temperature=0.8,
         )
 
         # Tar ut själva svaret, inget llm-message osv

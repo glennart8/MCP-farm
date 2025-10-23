@@ -8,8 +8,10 @@
 
 # Eventuella TODOS
     [x] LLM skapar nya uppgifter 
-    [] Kunna lägga till en titel och prio, låta llm generera resten
+    [x] Kunna lägga till en titel och prio, låta llm generera resten
+    [x] Testa i terminalen
     [] Skapa frontend i streamlit alt enkel .exe
+    [] 
     
 
 
