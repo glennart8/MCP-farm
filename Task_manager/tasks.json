@@ -86,5 +86,13 @@
     "preparations": "Kontrollera att vedklyven är i gott skick, har tillräckligt med bränsle/ström och att alla säkerhetsanordningar fungerar. Samla ihop personlig skyddsutrustning som hörselskydd, skyddsglasögon och arbetshandskar. Förbered en jämn och säker arbetsplats där veden kan klyvas och därefter staplas. Se till att den kapade veden är lättillgänglig.",
     "practical_desc": "Börja med att transportera den kapade veden till klyvplatsen. Starta vedklyven enligt tillverkarens instruktioner. Klyv varje vedträ till lämplig storlek, ofta i två till fyra delar beroende på ursprunglig diameter. Var noga med att placera vedträna stabilt i klyven och håll händer och kropp borta från rörliga delar. När veden är kluven, stapla den prydligt på en lämplig plats för torkning, gärna med god ventilation och skydd från regn. Stäng av och rengör vedklyven efter avslutat arbete.",
     "grants": "Förmåga att hantera en vedklyv på ett säkert och effektivt sätt. Kännedom om gällande säkerhetsföreskrifter för användning av motordriven utrustning. God fysisk förmåga att lyfta och hantera vedträn. Tillgång till fungerande vedklyv och fullständig personlig skyddsutrustning."
+  },
+  {
+    "title": "Rengöring och desinficering av hönshuset",
+    "priority": 2,
+    "description": "Grundlig rengöring av hönshuset för att bibehålla en god hygien, förebygga sjukdomar och säkerställa en trivsam miljö för hönsen. Detta inkluderar borttagning av gammalt strö, skrapning av ytor, desinficering samt byte till nytt strö.",
+    "preparations": "Se till att hönsen kan flyttas till en säker och tillfällig plats utanför hönshuset. Samla ihop nödvändiga verktyg: skyffel, skrapa, kvast, hink, högtryckstvätt (om tillgänglig), lämpligt desinfektionsmedel, nytt strö (t.ex. spån eller halm), samt personlig skyddsutrustning som handskar och munskydd.",
+    "practical_desc": "1. Förflytta försiktigt hönsen från hönshuset till deras tillfälliga utrymme. 2. Skrapa ut allt gammalt strö, spillning och smuts från golv, sittpinnar och reden. 3. Borsta eller dammsug bort damm och spindelnät från väggar och tak. 4. Spola av golv och väggar med vatten, eventuellt med högtryckstvätt. Låt torka ordentligt. 5. Desinficera alla ytor med ett godkänt desinfektionsmedel enligt produktens anvisningar. Låt verka och torka. 6. Kontrollera och rengör foderautomater och vattenbehållare. 7. Lägg ut ett nytt, fräscht lager strö på golvet. 8. Släpp tillbaka hönsen när hönshuset är helt torrt och klart.",
+    "grants": "En ren och frisk miljö för hönsen, minskad risk för sjukdomar och parasiter, förbättrad äggkvalitet och högre välbefinnande för flocken."
   }
 ]

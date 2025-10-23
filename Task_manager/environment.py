@@ -32,6 +32,7 @@ class Environment:
         return task
 
     def update_task(self, index, **kwargs):
+        """Loopar igenom alla key/values i kwargs och lägger till"""
         for key, value in kwargs.items():
             if hasattr(self.tasks[index], key):
                 setattr(self.tasks[index], key, value)
