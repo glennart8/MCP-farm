@@ -1,13 +1,12 @@
 from pprint import pprint
 from environment import Environment
 from agent import Agent
-
+from models import Action
 
 env = Environment()
 agent = Agent()
 
 # new_task=env.add_task(title="Bygga fårhus", priority=1)
-
 
 while True:
     choice = input("""Vad vill du göra?
@@ -15,7 +14,8 @@ while True:
                    2. Lägg till uppgift
                    3. Generera utförlig beskrivning av uppgift
                    4. Generera ny uppgift (gemini)
-                   5. Avsluta
+                   5. MCP
+                   6. Avsluta
                    """)
 
     if choice == "1":
@@ -69,8 +69,29 @@ while True:
         
         print(f"Ny uppgift skapad: {new_task_from_gemini.title}")
         print(f"Beskrivning: {new_task_from_gemini.description}\n")
+    
     elif choice == "5":
+        print("\n=== MCP-loop startar ===")
+
+        for step in range(1):
+            print(f"\n--- Steg {step + 1} ---")
+
+            # Observation
+            observation = env.observe()
+            pprint(observation.dict(), width=100)
+
+            # Beslut
+            action = agent.decide(observation)
+            pprint(action.dict(), width=100)
+
+            # Handling
+            result = env.act(action)
+            print("Resultat:", result) 
+        
+    elif choice == "6":
         break
+    
+    
 
 
 
@@ -78,35 +99,32 @@ while True:
 
 
 if __name__ == "__main__":
-    pass
+    print("\nMCP: Agenten observerar, beslutar och agerar")
 
+    for step in range(5):  
+        print(f"\n--- Steg {step + 1} ---")
 
-for step in range(3):  
-    print(f"\n=== Steg {step + 1} ===")
-    
-    # --- OBSERVERA ---
-    observation = env.get_state()
-    print("Observation:")
-    pprint(observation, width=100)
+        # Observation
+        observation = env.get_state()
+        print("Observation:")
+        pprint(observation, width=100)
 
-    # --- BESLUTA --- 
-    """
-    Just nu endast att uppdatera en post med info för de som saknar description
-    """
-    action = agent.decide_what_to_do(observation)
-    print("\nVald åtgärd:")
-    pprint(action, width=100)
+        # Beslut
+        action = agent.decide_what_to_do(observation)
+        print("\nAgentens beslut:")
+        pprint(action, width=100)
 
-    # --- KÖR BESLUT ---
-    if action["type"] == "update":
-        # Använd kwargs istället för content
-        result = env.update_task(action["index"], **action["kwargs"])
-        print("\nResultat:", result)
-    if action["type"] == "add":
-        result = env.add_task(**action["kwargs"])
+        # Utför handling
+        if action["type"] == "update":
+            result = env.update_task(action["index"], **action["kwargs"])
+            print("\nResultat:", result)
 
-        print("\nResultat:", result)
-    elif action["type"] == "none":
-        print("\nAlla uppgifter har redan en beskrivning.")
-    else:
-        print("\nOkänd åtgärdstyp:", action["type"])
+        elif action["type"] == "add":
+            result = env.add_task(**action["kwargs"])
+            print("\nNy uppgift skapad:", result)
+
+        elif action["type"] == "none":
+            print("\nAlla uppgifter är kompletta – inget att göra.")
+
+        else:
+            print("\n⚠️ Okänd åtgärdstyp:", action["type"])

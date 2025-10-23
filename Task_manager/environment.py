@@ -1,41 +1,45 @@
 import json
-from task_model import Task
+from models import Task, Observation, Action
 
 class Environment:
-    def __init__(self):
-        self.data_file = "tasks.json"
-        self._load_tasks()
-        
-    def _load_tasks(self):
+    def __init__(self, path="tasks.json"):
+        self.path = path
+        self._load()
+
+    def _load(self):
         try:
-            with open(self.data_file, "r", encoding="utf-8") as f:
+            with open(self.path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # Skapar Task-objekt och sparar de i listan tasks
                 self.tasks = [Task(**t) for t in data]
         except FileNotFoundError:
-            self.tasks = []  # starta tomt om fil saknas
-            self._save_tasks()
+            self.tasks = []
+            self._save()
 
+    def _save(self):
+        with open(self.path, "w", encoding="utf-8") as f:
+            json.dump([t.dict() for t in self.tasks], f, ensure_ascii=False, indent=2)
 
-    def _save_tasks(self):
-        with open(self.data_file, "w", encoding="utf-8") as f:
-            json.dump([t.model_dump() for t in self.tasks], f, ensure_ascii=False, indent=2)
+    # === MCP hooks ===
+    def observe(self) -> Observation:
+        """Returnerar nuvarande miljötillstånd."""
+        return Observation(tasks=self.tasks)
 
-    def get_state(self):
-        # Returnera en lista av dicts för agenten
-        return {"tasks": [t.model_dump() for t in self.tasks]}
+    def act(self, action: Action):
+        """Utför en handling som agenten har beslutat."""
+        if action.type == "add" and action.task:
+            self.tasks.append(action.task)
+            self._save()
+            return f"Added: {action.task.title}"
 
-    def add_task(self, title: str, priority: int, **kwargs):
-        task = Task(title=title, priority=priority, **kwargs)
-        self.tasks.append(task)
-        self._save_tasks()
-        return task
+        elif action.type == "update" and action.index is not None and action.task:
+            for key, val in action.task.dict().items():
+                if val is not None:
+                    setattr(self.tasks[action.index], key, val)
+            self._save()
+            return f"Updated: {self.tasks[action.index].title}"
 
-    def update_task(self, index, **kwargs):
-        """Loopar igenom alla key/values i kwargs och lägger till"""
-        for key, value in kwargs.items():
-            if hasattr(self.tasks[index], key):
-                setattr(self.tasks[index], key, value)
-        self._save_tasks()
-        return f"Updated: {self.tasks[index].title}"
-    
+        elif action.type == "none":
+            return "Nothing to do."
+
+        else:
+            return "Unknown action type."

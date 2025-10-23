@@ -94,5 +94,53 @@
     "preparations": "Se till att hönsen kan flyttas till en säker och tillfällig plats utanför hönshuset. Samla ihop nödvändiga verktyg: skyffel, skrapa, kvast, hink, högtryckstvätt (om tillgänglig), lämpligt desinfektionsmedel, nytt strö (t.ex. spån eller halm), samt personlig skyddsutrustning som handskar och munskydd.",
     "practical_desc": "1. Förflytta försiktigt hönsen från hönshuset till deras tillfälliga utrymme. 2. Skrapa ut allt gammalt strö, spillning och smuts från golv, sittpinnar och reden. 3. Borsta eller dammsug bort damm och spindelnät från väggar och tak. 4. Spola av golv och väggar med vatten, eventuellt med högtryckstvätt. Låt torka ordentligt. 5. Desinficera alla ytor med ett godkänt desinfektionsmedel enligt produktens anvisningar. Låt verka och torka. 6. Kontrollera och rengör foderautomater och vattenbehållare. 7. Lägg ut ett nytt, fräscht lager strö på golvet. 8. Släpp tillbaka hönsen när hönshuset är helt torrt och klart.",
     "grants": "En ren och frisk miljö för hönsen, minskad risk för sjukdomar och parasiter, förbättrad äggkvalitet och högre välbefinnande för flocken."
+  },
+  {
+    "title": "Reparera staket vid kohagen",
+    "priority": 2,
+    "description": "Kontrollera och reparera skadade sektioner av staketet runt kohagen för att säkerställa att djuren hålls inne säkert och förhindra rymningar. Fokusera på att laga hål, spänna tråd och byta ut ruttna stolpar vid behov.",
+    "preparations": "Samla ihop verktyg som hammare, tång, spik, ståltråd, staketstolpar, nytt staketmaterial (om nödvändigt), samt skyddshandskar och eventuellt en spett. Gå en runda längs staketet för att identifiera de värsta skadorna först.",
+    "practical_desc": "Arbeta systematiskt längs staketet, börja med de mest kritiska skadorna. Se till att alla lagningar är stabila och säkra. Var försiktig med taggtråd om sådan finns. Rapportera större skador som kräver mer omfattande åtgärder eller maskinell hjälp.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Reparera staket i södra hagen",
+    "priority": 2,
+    "description": "Kontrollera och reparera skadade sektioner av staketet i den södra hagen för att säkerställa att djuren hålls säkert inne och för att förhindra rymningar.",
+    "preparations": "Samla ihop nödvändiga verktyg såsom hammare, tång, spik/skruv, ståltråd, nya stolpar/brädor vid behov. Gå en runda längs staketet dagen innan för att identifiera de mest akuta skadorna.",
+    "practical_desc": "Börja med de mest uppenbara skadorna. Byt ut ruttna eller brutna stolpar, spänn upp slak tråd eller laga trasiga nät. Se till att alla kopplingar är säkra. Arbeta metodiskt från ena änden av hagen till den andra.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Beskära fruktträd",
+    "priority": 3,
+    "description": "Systematisk beskärning av gårdens fruktträd (äppelträd, päronträd) för att främja fruktproduktion, förbättra trädens struktur och bibehålla god hälsa. Identifiera och ta bort döda, sjuka eller skadade grenar samt gallra ut grenar som växer inåt eller korsar varandra.",
+    "preparations": "Skaffa lämpliga beskärningsverktyg såsom sekatör, grensax och grensåg. Se till att verktygen är vassa och rena. Använd skyddsglasögon och handskar. Läs på om specifika beskärningstekniker för de olika fruktträdtyperna på gården.",
+    "practical_desc": "Arbetet kan utföras ensam eller i par. Börja med att inspektera varje träd noggrant. Prioritera att ta bort döda, sjuka eller skadade grenar först. Klipp därefter bort grenar som växer inåt, korsar andra grenar eller är i dålig position. Gör rena snitt nära grenkragen för att minimera skador på trädet. Samla ihop alla bortklippta grenar för kompostering eller eldning. Arbeta säkert, särskilt vid användning av stegar.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Inspektera och underhålla bevattningssystemet",
+    "priority": 3,
+    "description": "Gå igenom hela bevattningssystemet för att identifiera läckor, blockeringar eller skador. Rengör filter och justera spridare vid behov för optimal vattenfördelning och effektivitet.",
+    "preparations": "Samla ihop relevanta verktyg (skiftnycklar, tång, rengöringsborste, reservdelar som packningar eller munstycken), kartor över systemet om tillgängliga, anteckningsblock och penna. Se till att ha tillgång till vattenkällan för testning.",
+    "practical_desc": "Börja vid vattenkällan och arbeta dig utåt genom systemet. Kontrollera synligt läckage, tryckfall och spridningsmönster. Rengör alla filter. Justera eller byt ut spridare/droppmunstycken som inte fungerar korrekt. Dokumentera alla problem och utförda åtgärder. Arbeta systematiskt för att inte missa några delar.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Reparera staket vid hagen",
+    "priority": 3,
+    "description": "Staketet runt den norra hagen har skador som behöver åtgärdas för att förhindra att djuren rymmer. Flera stolpar är ruttna och tråden har brustit på några ställen.",
+    "preparations": "Kontrollera materiallager för nya stolpar, stängseltråd, isolatorer och verktyg (spade, hammare, tång, mätband). Beställ material om det saknas.",
+    "practical_desc": "Arbeta i grupp om två eller tre personer. En person gräver nya hål/tar bort gamla stolpar, en annan fäster tråd/isolatorer. Säkerställ att staketet är spänt och stabilt och att inga vassa kanter finns kvar.",
+    "grants": "Möjlighet att lära sig grundläggande stängselreparation och användning av relevanta verktyg. Fysisk aktivitet utomhus."
+  },
+  {
+    "title": "Reparera stängsel",
+    "priority": 1,
+    "description": "Kontrollera och reparera trasiga sektioner av stängslet runt betesmarken för att säkerställa att djuren hålls inne och för att förhindra skador.",
+    "preparations": "Samla ihop verktyg (hammare, tång, spik/skruv, ståltråd/rep, nya stolpar om nödvändigt), identifiera tydligt de skadade sektionerna som behöver åtgärdas.",
+    "practical_desc": "Gå systematiskt längs stängslet och leta efter lösa trådar, ruttna stolpar, trasiga isolatorer eller andra skador. Byt ut ruttna stolpar, spänn lösa trådar och fäst lösa delar. Se till att alla grindar stänger ordentligt och är säkra.",
+    "grants": "Ej specificerat"
   }
 ]
