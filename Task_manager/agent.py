@@ -14,17 +14,17 @@ class Agent:
         )
 
     def decide(self, observation: Observation) -> Action:
-        """Analyserar observationen och returnerar nästa steg."""
+        """Analyserar observationen och returnerar nästa steg (typ av action)."""
         for i, task in enumerate(observation.tasks):
             if not task.description:
                 enriched = self._enrich_task(task.title)
                 return Action(type="update", index=i, task=enriched)
 
-        if len(observation.tasks) < 20:
+        if len(observation.tasks) <= 20:
             new_task = self._create_task()
             return Action(type="add", task=new_task)
 
-        return Action(type="none", info="All tasks already complete.")
+        return Action(type="none", info="All tasks already completed.")
 
     # === interna hjälpfunktioner ===
     def _create_task(self) -> Task:
@@ -32,6 +32,7 @@ class Agent:
         Skapa EN ny gårdsrelaterad uppgift i JSON-format.
         Fält: title, priority, description, preparations, practical_desc, grants
         Skriv **endast JSON**, fyll ALLA fält. Om du inte vet något, skriv "Ej specificerat".
+        Håll varje texts längd under 100 tecken.
         
         Exempel:
         {
@@ -48,6 +49,7 @@ class Agent:
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
         )
+        
         raw = response.choices[0].message.content.strip()
 
         # Ta bort Markdown-ticks om de finns
@@ -62,7 +64,6 @@ class Agent:
             print("JSONDecodeError:", e)
             data = {}
 
-
         # har default-värden
         return Task(
             title=data.get("title", "Ny uppgift"),
@@ -72,7 +73,6 @@ class Agent:
             practical_desc=data.get("practical_desc", "Ej specificerat"),
             grants=data.get("grants", "Ej specificerat")
         )
-
 
 
     def _enrich_task(self, title: str) -> Task:
@@ -90,16 +90,22 @@ class Agent:
             )
             raw = response.choices[0].message.content.strip()
 
-            if not raw:
-                raise ValueError("Tomt LLM-svar")
+            # Kolla om ticks fortf finns
+            # print("LLM raw response:", repr(raw))
 
+            # Ta bort Markdown-kodblock om de finns
+            if raw.startswith("```"):
+                lines = raw.split("\n")
+                # ta bort första raden (```json eller ```) och sista raden (```)
+                raw = "\n".join(line for line in lines[1:-1] if not line.strip().startswith("```"))
+            
             data = json.loads(raw)
 
         except (json.JSONDecodeError, TypeError, ValueError) as e:
             print("LLM gav ogiltig JSON eller tomt svar:", e)
             data = {}
 
-        # Säkerställ att alla fält får ett defaultvärde
+        # defaultvärden
         return Task(
             title=title,
             priority=1,
