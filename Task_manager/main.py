@@ -45,10 +45,14 @@ while True:
         print(f"\nDu uppdaterar: {env.tasks[task_to_edit].title}")
 
         # Agenten skapar saknade fält
-        task_update = agent.enrich_task_info(env.tasks[task_to_edit].title)
+        #task_update = agent.enrich_task_info(env.tasks[task_to_edit].title)
+        enriched_task = agent._enrich_task(env.tasks[task_to_edit].title)
 
         # Uppdaterar den valda uppgiften i miljön
-        env.update_task(task_to_edit, **task_update.model_dump())
+        action = Action(type="update", index=task_to_edit, task=enriched_task)
+
+        # Låt miljön utföra ändringen
+        result = env.act(action)
 
         print(f"\nUppgiften '{env.tasks[task_to_edit].title}' har uppdaterats.")    
     elif choice == "4":
@@ -73,16 +77,17 @@ while True:
     elif choice == "5":
         print("\n=== MCP-loop startar ===")
 
+        # kör bara en i taget nu
         for step in range(1):
             print(f"\n--- Steg {step + 1} ---")
 
-            # Observation
+            # Observation av hela listan över tasks
             observation = env.observe()
-            pprint(observation.dict(), width=100)
+            pprint(observation.model_dump(), width=100)
 
             # Beslut
             action = agent.decide(observation)
-            pprint(action.dict(), width=100)
+            pprint(action.model_dump(), width=100)
 
             # Handling
             result = env.act(action)
@@ -92,10 +97,6 @@ while True:
         break
     
     
-
-
-
-
 
 
 if __name__ == "__main__":

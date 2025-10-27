@@ -15,16 +15,42 @@ class Agent:
 
     def decide(self, observation: Observation) -> Action:
         """Analyserar observationen och returnerar nästa steg (typ av action)."""
-        for i, task in enumerate(observation.tasks):
-            if not task.description:
-                enriched = self._enrich_task(task.title)
-                return Action(type="update", index=i, task=enriched)
+        # for i, task in enumerate(observation.tasks):
+        #     if not task.description:
+        #         enriched = self._enrich_task(task.title)
+        #         return Action(type="update", index=i, task=enriched)
+        
+        # 1 - kolla dubbletter
+        duplicate_index = self._find_duplicates(observation)
+        if duplicate_index is not None:
+            return Action(type="delete", index=duplicate_index, info="Removed duplicate task")
 
+        # 2 - Gör den task med högst prio och ge endast den utförlig info.
+        incomplete_tasks = [t for t in observation.tasks if not t.description]
+        if incomplete_tasks:
+            target = max(incomplete_tasks, key=lambda t: t.priority)
+            index = observation.tasks.index(target)
+            enriched = self._enrich_task(target.title)
+            return Action(type="update", index=index, task=enriched)
+
+        # 3 - lägg till uppgift
         if len(observation.tasks) <= 20:
             new_task = self._create_task()
             return Action(type="add", task=new_task)
 
         return Action(type="none", info="All tasks already completed.")
+    
+    def _find_duplicates(self, observation: Observation) -> int | None:
+        """Returnerar index för första duplicerade task, eller None om inga finns."""
+        titles_seen = set() # Skapar en lista som inte kan innehålla dubletter
+        for i, t in enumerate(observation.tasks):
+            title = t.title.strip().lower()
+            if title in titles_seen:
+                return i
+            titles_seen.add(title)
+        return None
+
+    
 
     # === interna hjälpfunktioner ===
     def _create_task(self) -> Task:

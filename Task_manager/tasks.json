@@ -138,9 +138,25 @@
   {
     "title": "Reparera stängsel",
     "priority": 1,
-    "description": "Kontrollera och reparera trasiga sektioner av stängslet runt betesmarken för att säkerställa att djuren hålls inne och för att förhindra skador.",
-    "preparations": "Samla ihop verktyg (hammare, tång, spik/skruv, ståltråd/rep, nya stolpar om nödvändigt), identifiera tydligt de skadade sektionerna som behöver åtgärdas.",
-    "practical_desc": "Gå systematiskt längs stängslet och leta efter lösa trådar, ruttna stolpar, trasiga isolatorer eller andra skador. Byt ut ruttna stolpar, spänn lösa trådar och fäst lösa delar. Se till att alla grindar stänger ordentligt och är säkra.",
+    "description": "Åtgärda skador på ett stängsel för att återställa dess funktion, säkerhet och estetik. Detta kan inkludera reparation av trasiga stolpar, spänning av lösa trådar, byte av ruttna brädor eller förstärkning av svaga sektioner. Syftet är att bibehålla en tydlig gräns, skydda egendom eller hålla djur inom ett område.",
+    "preparations": "Inspektera stängslet noggrant för att identifiera omfattningen och typen av skada (t.ex. ruttna stolpar, trasiga trådar, lösa paneler). Samla nödvändiga verktyg såsom hammare, tång, avbitare, spade, stolpdrivare/jordborr, vattenpass, måttband samt personlig skyddsutrustning (handskar, skyddsglasögon). Skaffa material som nya stolpar (trä, metall), stängseltråd, märlor, spik/skruv, betongblandning (vid behov) och träskyddsmedel. Rensa arbetsområdet från hinder och planera arbetsgången.",
+    "practical_desc": "Börja med att noggrant inspektera och markera alla skadade sektioner. Avlägsna därefter skadade stolpar, trådar eller brädor. Om stolpar behöver bytas, gräv nya hål med korrekt djup och avstånd, placera de nya stolparna och säkerställ att de står rakt med ett vattenpass innan du fyller med betong eller packar jorden ordentligt. Låt betongen härda. När stolparna är på plats, fäst det nya stängselmaterialet. För trådstängsel, spänn tråden jämnt och fäst den med märlor eller klammer. För trästängsel, montera brädor eller paneler säkert. Slutligen, kontrollera att alla fästen är säkra, justera spänningen vid behov och applicera eventuellt träskyddsmedel. Rensa bort allt byggavfall.",
+    "grants": "Vid reparation av stängsel på tomtgräns kan det vara lämpligt att informera eller samråda med grannen. Om stängslet ligger inom ett område med särskilda bestämmelser (t.ex. kulturmiljö eller detaljplanerat område) kan bygglov eller andra tillstånd från kommunen krävas. Säkerställ tillgång till nödvändiga verktyg och material samt eventuell budget för inköp. För större reparationer kan extra arbetskraft behövas."
+  },
+  {
+    "title": "Reparera staket",
+    "priority": 1,
+    "description": "Kontrollera och laga skadade sektioner av gårdsstaketet.",
+    "preparations": "Samla verktyg, virke, tråd. Planera rutt.",
+    "practical_desc": "Arbeta systematiskt längs staketet, dokumentera brister.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Klippa gräs runt ladugården",
+    "priority": 2,
+    "description": "Håll rent och snyggt, minska brandrisk samt förbättra framkomligheten.",
+    "preparations": "Kontrollera bränsle och olja i gräsklippare. Säkerställ att knivarna är vassa.",
+    "practical_desc": "Använd åkgräsklippare för öppna ytor. Trimma kanter och svåråtkomliga ställen.",
     "grants": "Ej specificerat"
   }
 ]
