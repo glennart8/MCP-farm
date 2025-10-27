@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Kitta fönster",
+    "priority": 3,
+    "description": "Ej specificerat",
+    "preparations": "Ej specificerat",
+    "practical_desc": "Ej specificerat",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "stängsla första fårhagen",
+    "priority": 2,
+    "description": "Ej specificerat",
+    "preparations": "Ej specificerat",
+    "practical_desc": "Ej specificerat",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Reparera gärdesgård vid kohagen",
+    "priority": 1,
+    "description": "Uppgiften innebär att reparera och återställa en gärdesgård intill en kohage. Syftet är att säkerställa att djuren hålls inom hagen på ett säkert sätt och att förhindra rymningar, vilket kan leda till skador på djur eller egendom. Arbetet omfattar att åtgärda skadade stolpar, trasig tråd eller andra defekter som komprometterar gärdesgårdens funktion och stabilitet.",
+    "preparations": "Före arbetet påbörjas ska en noggrann inspektion av gärdesgården genomföras för att identifiera omfattningen av skadorna och vilka material som behövs (t.ex. nya stolpar, tråd, isolatorer, spik/skruv). Samla ihop nödvändiga verktyg såsom hammare, tång, spett, stolpdragare, trådsträckare och eventuellt en motorsåg eller kap för att anpassa material. Säkerställ även tillgång till personlig skyddsutrustning (handskar, skyddsglasögon).",
+    "practical_desc": "Börja med att avlägsna trasiga eller ruttna stolpar och lösa/brutna trådar. Gräv nya hål eller använd befintliga för att placera nya stolpar, säkerställande att de är stadigt förankrade i marken på korrekt avstånd. Fäst ny tråd eller laga befintlig med skarvdon, och spänn tråden till lämplig nivå för att förhindra att djuren tar sig igenom. Se till att alla fästen är säkra och att gärdesgården är stabil. Kontrollera slutligen hela sträckan för att säkerställa att inga ytterligare svaga punkter finns.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Rensa ogräs i grönsakslandet",
+    "priority": 1,
+    "description": "Att rensa ogräs i grönsakslandet innebär att systematiskt avlägsna oönskade växter som konkurrerar med grönsakerna om näring, vatten och solljus. Detta är avgörande för att säkerställa en god skörd och friska plantor. Ogräs kan även agera som värdar för skadedjur och sjukdomar, vilket gör regelbunden rensning till en viktig del av trädgårdsskötseln.",
+    "preparations": "Innan arbetet påbörjas, samla ihop nödvändiga verktyg såsom trädgårdshandskar, handrensare (t.ex. en maskrosrensare), hacka eller kultivator, samt en hink eller skottkärra för att samla det rensade ogräset. Kontrollera väderleksrapporten; det är oftast enklare att rensa ogräs efter regn eller vattning när jorden är mjuk. Det är också viktigt att identifiera vilka växter som är ogräs och vilka som är grönsaksplantor för att undvika att rensa bort önskade plantor.",
+    "practical_desc": "Börja med att försiktigt lossa jorden runt ogräset med en handrensare eller hacka. Försök att få med hela rotsystemet för att förhindra att ogräset växer tillbaka. För mindre ogräs nära grönsaksplantorna, kan handrensning vara att föredra för att undvika att skada grönsakerna. Arbeta metodiskt, gärna rad för rad eller område för område, för att säkerställa att inget område missas. Samla allt rensat ogräs i hinken/skottkärran och transportera bort det till komposten (om det inte gått i frö) eller till återvinning för trädgårdsavfall. Var särskilt noggrann med att inte lämna kvar ogräs som redan gått i frö, då dessa lätt kan sprida sig igen.",
+    "grants": "En lyckad ogräsrensning resulterar i en frodig och välmående grönsaksträdgård med starka och friska plantor som kan utvecklas optimalt. Detta leder till en rikligare och bättre kvalitet på skörden. Dessutom bidrar det till en mer estetiskt tilltalande trädgårdsmiljö och minskar risken för skadedjur och sjukdomar som annars trivs i ogräset. Slutligen ger det en känsla av tillfredsställelse att se sitt grönsaksland rent och välskött."
+  },
+  {
+    "title": "Rengöra häststall",
+    "priority": 2,
+    "description": "Ta bort smuts och gödsel från hästbåsen.",
+    "preparations": "Samla grep, skottkärra, kvast. Se till att hästarna är ute.",
+    "practical_desc": "Börja med gödsel, sedan borsta. Strö ut nytt halm efteråt.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Rensa hönshuset",
+    "priority": 1,
+    "description": "En grundlig rengöring av hönshuset för att upprätthålla god hygien, förhindra sjukdomar och säkerställa hönornas välbefinnande. Uppgiften innefattar borttagning av gammalt strö, rengöring av ytor, sittpinnar och reden samt eventuell desinficering.",
+    "preparations": "Se till att alla höns är ute ur hönshuset och säkert förvarade (t.ex. i hönsgården eller en tillfällig inhägnad). Samla ihop nödvändiga verktyg såsom skyffel, kratta, borste, skrapa, hink, sopsäckar eller skottkärra, vatten, lämpligt rengörings- och desinfektionsmedel, samt personlig skyddsutrustning som handskar och eventuellt munskydd vid damm.",
+    "practical_desc": "Börja med att avlägsna allt gammalt strö, spillning och eventuella matrester från hönshuset. Använd en skrapa för att lossa intorkad smuts från golv och väggar. Borsta noga av sittpinnar och reden. Dammsug eller sopa ut damm, fjädrar och smårester. Tvätta därefter alla ytor – golv, väggar upp till en viss höjd, sittpinnar och reden – med vatten och ett godkänt rengöringsmedel. Vid behov, desinficera ytorna. Låt hönshuset lufttorka ordentligt innan du lägger in nytt, rent strö. Kontrollera och fyll på mat- och vattenskålar med färskt innehåll innan hönsen släpps in igen.",
+    "grants": "Bidrar till en hälsosammare och mer trivsam miljö för hönorna, vilket minskar risken för sjukdomar och parasiter. Förbättrar luftkvaliteten i hönshuset och minskar dålig lukt. Förlänger hönshusets livslängd genom att motverka nedbrytning av material. Kan även bidra till en högre kvalitet på äggproduktionen."
+  },
+  {
+    "title": "Rensa avloppsdiken",
+    "priority": 4,
+    "description": "Säkerställ god dränering genom att rensa diken från blockeringar.",
+    "preparations": "Inspektera diken. Skaffa spade, krattor och lämpliga skyddskläder.",
+    "practical_desc": "Gräv bort växtlighet och sediment. Kontrollera vattenflödet efter rensning.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Reparera staketet vid hagen",
+    "priority": 4,
+    "description": "Åtgärda trasiga delar av staketet för att säkra djuren.",
+    "preparations": "Inspektera skador, samla verktyg, köp nytt virke/tråd.",
+    "practical_desc": "Byt ut ruttna stolpar/trasig tråd. Spänn tråden ordentligt.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Rensa dräneringsdiken",
+    "priority": 3,
+    "description": "Ta bort växtlighet och blockeringar i gårdens dräneringsdiken.",
+    "preparations": "Samla spade, grep, skottkärra. Kontrollera vilka diken som behöver rensas.",
+    "practical_desc": "Gräv ur slam och rötter. Se till att vattnet kan flöda fritt igen.",
+    "grants": "Ej specificerat"
+  }
+]
