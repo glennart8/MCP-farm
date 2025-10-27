@@ -10,7 +10,7 @@ agent = Agent()
 
 while True:
     choice = input("""Vad vill du göra?
-                   1. Vissa alla uppgifter
+                   1. Visa uppgifter
                    2. Lägg till uppgift
                    3. Generera utförlig beskrivning av uppgift
                    4. Generera ny uppgift (gemini)
@@ -59,20 +59,13 @@ while True:
         print("\nGenererar ny uppgift med Gemini, vänta lite...")
 
         # Agenten skapa en ny Task
-        new_task_from_gemini = agent.create_a_proper_task()
+        new_task = agent.create_a_proper_task()
 
         # Lägg till uppgift i env
-        env.add_task(
-            title=new_task_from_gemini.title,
-            priority=new_task_from_gemini.priority,
-            description=new_task_from_gemini.description,
-            preparations=new_task_from_gemini.preparations,
-            practical_desc=new_task_from_gemini.practical_desc,
-            grants=new_task_from_gemini.grants
-        )
+        env.add_generated_task(new_task)
         
-        print(f"Ny uppgift skapad: {new_task_from_gemini.title}")
-        print(f"Beskrivning: {new_task_from_gemini.description}\n")
+        print(f"Ny uppgift skapad: {new_task.title}")
+        print(f"Beskrivning: {new_task.description}\n")
     
     elif choice == "5":
         print("\n=== MCP-loop startar ===")

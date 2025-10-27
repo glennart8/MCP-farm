@@ -12,34 +12,31 @@ class Agent:
             api_key=os.getenv("GEMINI_API_KEY"),
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
         )
-
+    
     def decide(self, observation: Observation) -> Action:
         """Analyserar observationen och returnerar nästa steg (typ av action)."""
-        # for i, task in enumerate(observation.tasks):
-        #     if not task.description:
-        #         enriched = self._enrich_task(task.title)
-        #         return Action(type="update", index=i, task=enriched)
-        
-        # 1 - kolla dubbletter
-        duplicate_index = self._find_duplicates(observation)
-        if duplicate_index is not None:
-            return Action(type="delete", index=duplicate_index, info="Removed duplicate task")
 
-        # 2 - Gör den task med högst prio och ge endast den utförlig info.
-        incomplete_tasks = [t for t in observation.tasks if not t.description]
-        if incomplete_tasks:
-            target = max(incomplete_tasks, key=lambda t: t.priority)
-            index = observation.tasks.index(target)
-            enriched = self._enrich_task(target.title)
-            return Action(type="update", index=index, task=enriched)
+        # 1. Dubbletter
+        action = self._handle_duplicates(observation)
+        if action:
+            return action
 
-        # 3 - lägg till uppgift
-        if len(observation.tasks) <= 20:
-            new_task = self._create_task()
-            return Action(type="add", task=new_task)
+        # 2. Ofullständiga tasks
+        action = self._handle_incomplete_tasks(observation)
+        if action:
+            return action
 
+        # 3. Nya uppgifter
+        action = self._handle_task_creation(observation)
+        if action:
+            return action
+
+        # 4. Inget kvar att göra
         return Action(type="none", info="All tasks already completed.")
     
+    # ---------------- Hjälpfunktioner ------------------
+       
+    # Hitta dubletter
     def _find_duplicates(self, observation: Observation) -> int | None:
         """Returnerar index för första duplicerade task, eller None om inga finns."""
         titles_seen = set() # Skapar en lista som inte kan innehålla dubletter
@@ -49,10 +46,31 @@ class Agent:
                 return i
             titles_seen.add(title)
         return None
-
     
+    # Ta bort dubletter
+    def _handle_duplicates(self, observation: Observation) -> Action | None:
+        index = self._find_duplicates(observation)
+        if index is not None:
+            return Action(type="delete", index=index, info="Removed duplicate task")
+        return None
+    
+    def _handle_incomplete_tasks(self, observation: Observation) -> Action | None:
+        incomplete = [t for t in observation.tasks if not t.description]
+        if not incomplete:
+            return None
 
-    # === interna hjälpfunktioner ===
+        target = max(incomplete, key=lambda t: t.priority)
+        index = observation.tasks.index(target)
+        enriched = self._enrich_task(target.title)
+        return Action(type="update", index=index, task=enriched, info = f"Enriched task: {enriched.title}")
+
+    def _handle_task_creation(self, observation: Observation) -> Action | None:
+        if len(observation.tasks) <= 20:
+            new_task = self._create_task()
+            return Action(type="add", task=new_task, info = f"Created new task: {new_task.title}")
+        return None
+
+    # LLM skapar en ny gårdsrelaterad uppgift
     def _create_task(self) -> Task:
         prompt = """
         Skapa EN ny gårdsrelaterad uppgift i JSON-format.
@@ -100,7 +118,7 @@ class Agent:
             grants=data.get("grants", "Ej specificerat")
         )
 
-
+    # Uppdaterar de tasks där info saknas
     def _enrich_task(self, title: str) -> Task:
         prompt = f"""
         Förbättra uppgiften '{title}' med fälten:
@@ -140,3 +158,7 @@ class Agent:
             practical_desc=data.get("practical_desc", "Ej specificerat"),
             grants=data.get("grants", "Ej specificerat")
         )
+
+    # publik metod för att llm ska skapa task
+    def create_a_proper_task(self) -> Task:
+        return self._create_task()

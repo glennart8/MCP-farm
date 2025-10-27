@@ -158,5 +158,13 @@
     "preparations": "Kontrollera bränsle och olja i gräsklippare. Säkerställ att knivarna är vassa.",
     "practical_desc": "Använd åkgräsklippare för öppna ytor. Trimma kanter och svåråtkomliga ställen.",
     "grants": "Ej specificerat"
+  },
+  {
+    "title": "kitta fönster",
+    "priority": 1,
+    "description": "En viktig del av fönsterunderhåll som innebär att applicera nytt fönsterkitt runt fönsterglas för att fästa glaset i bågen, täta mot väder och vind, samt skydda träet. Det är avgörande för fönstrets livslängd, energieffektivitet och estetiska utseende.",
+    "preparations": "Skrapa bort allt gammalt fönsterkitt noggrant, eventuellt med hjälp av värmepistol eller kittskrapa. Rengör fönsterbågen från smuts, damm och lösa färgflagor. Om träet är bart, grundmåla ytan där kittet ska fästa för att förhindra att träet suger olja ur kittet. Se till att ha allt material och alla verktyg till hands: fönsterkitt, kittkniv, stift (kittstift), eventuellt linolja, rengöringsmedel och skyddsutrustning.",
+    "practical_desc": "När bågen är förberedd, lägg en tunn sträng kitt i falsen där glaset ska ligga. Placera fönsterglaset försiktigt på kittbädden. Fäst glaset med kittstift eller små spik runt om, så att glaset sitter stabilt. Applicera sedan en större mängd kitt längs glasets kanter på utsidan. Arbeta in kittet ordentligt mot glaset och bågen. Använd en kittkniv för att forma kittet till en jämn, sluttande yta som möter glaset och bågen i en skarp linje, oftast i en 45-graders vinkel för bästa avrinning. Ta bort överflödigt kitt både från glaset och bågen omedelbart. Låt kittet härda enligt tillverkarens anvisningar innan målning.",
+    "grants": "För specifika fall, såsom renovering av kulturhistoriskt värdefulla fönster i äldre byggnader, kan bidrag sökas från exempelvis länsstyrelser, kommuner eller stiftelser för byggnadsvård. Vissa energibidrag kan också indirekt täcka delar av fönsterrenovering om det ingår i en större energieffektiviseringsåtgärd. För standardunderhåll är det sällan några specifika bidrag tillgängliga. Det är bäst att undersöka lokala och regionala möjligheter."
   }
 ]

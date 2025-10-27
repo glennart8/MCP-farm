@@ -51,3 +51,19 @@ class Environment:
 
         else:
             return "Unknown action type."
+
+
+
+
+    # Publik metod som anropas "manuellt" av anv
+    def add_task(self, title: str, priority: int):
+        task = Task(title=title, priority=priority)
+        self.tasks.append(task)
+        self._save()
+        return task
+    
+    def add_generated_task(self, task: Task):
+        """Lägg till en färdiggenererad uppgift från AI-agenten."""
+        self.tasks.append(task)
+        self._save()
+        return task
