@@ -55,7 +55,7 @@ class Environment:
             return f"Added: {action.task.title}"
 
         elif action.type == "update" and action.index is not None and action.task:
-            for key, val in action.task.dict().items():
+            for key, val in action.task.model_dump().items():
                 if val is not None:
                     setattr(self.tasks[action.index], key, val)
             self._save()

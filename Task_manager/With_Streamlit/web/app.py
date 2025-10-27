@@ -13,13 +13,6 @@ agent = Agent()
 
 st.title("Task Manager")
 
-# # Visa alla tasks
-# st.header("Alla uppgifter")
-# tasks = env.get_tasks()
-# for i, t in enumerate(tasks):
-#     st.write(f"{i+1}. {t.title} (Prioritet: {t.priority})")
-#     st.write(f"   Beskrivning: {t.description}")
-
 # Lägg till task manuellt
 st.header("Lägg till uppgift")
 with st.form("add_task_form"):

@@ -33,13 +33,25 @@ class Agent:
 
         # 4. Inget kvar att göra
         return Action(type="none", info="All tasks already completed.")
-
+    
+    # Dubletter
     def _handle_duplicates(self, observation: Observation) -> Action | None:
         index = self._find_duplicates(observation)
         if index is not None:
             return Action(type="delete", index=index, info="Removed duplicate task")
         return None
     
+    def _find_duplicates(self, observation: Observation) -> int | None:
+        """Returnerar index för första duplicerade task, eller None om inga finns."""
+        titles_seen = set()
+        for i, t in enumerate(observation.tasks):
+            title = t.title.strip().lower()
+            if title in titles_seen:
+                return i
+            titles_seen.add(title)
+        return None
+    
+    # Ofullständiga tasks
     def _handle_incomplete_tasks(self, observation: Observation) -> Action | None:
         incomplete = [t for t in observation.tasks if not t.description]
         if not incomplete:
@@ -50,21 +62,13 @@ class Agent:
         enriched = self._enrich_task(target.title)
         return Action(type="update", index=index, task=enriched)
 
+    # Skapa task    
     def _handle_task_creation(self, observation: Observation) -> Action | None:
         if len(observation.tasks) <= 20:
             new_task = self._create_task()
             return Action(type="add", task=new_task)
         return None
 
-    def _find_duplicates(self, observation: Observation) -> int | None:
-        """Returnerar index för första duplicerade task, eller None om inga finns."""
-        titles_seen = set()
-        for i, t in enumerate(observation.tasks):
-            title = t.title.strip().lower()
-            if title in titles_seen:
-                return i
-            titles_seen.add(title)
-        return None
 
     # === interna hjälpfunktioner ===
     def _normalize_task_data(self, data: dict) -> Task:
@@ -101,8 +105,11 @@ class Agent:
             grants=ensure_str(data.get("grants", "Ej specificerat")),
         )
 
-
-
+    def _delete_markdown(self, raw: str) -> str:
+        if raw.startswith("```") and raw.endswith("```"):
+            lines = raw.split("\n")
+            raw = "\n".join(line for line in lines[1:-1] if not line.strip().startswith("```"))
+        return raw
 
     def _create_task(self) -> Task:
         prompt = """
@@ -132,14 +139,12 @@ class Agent:
 
         raw = response.choices[0].message.content.strip()
 
-        # Ta bort Markdown-kodblock om de finns
-        if raw.startswith("```") and raw.endswith("```"):
-            raw = "\n".join(raw.split("\n")[1:-1])
+        cleaned_raw = self._delete_markdown(raw)
 
-        print("Cleaned LLM output:", raw)
+        print("Cleaned LLM output:", cleaned_raw)
 
         try:
-            data = json.loads(raw)
+            data = json.loads(cleaned_raw)
         except json.JSONDecodeError:
             data = {}
 
@@ -160,13 +165,12 @@ class Agent:
             )
             raw = response.choices[0].message.content.strip()
 
-            if raw.startswith("```"):
-                lines = raw.split("\n")
-                raw = "\n".join(line for line in lines[1:-1] if not line.strip().startswith("```"))
+            cleaned_raw = self._delete_markdown(raw)
 
-            data = json.loads(raw)
+            data = json.loads(cleaned_raw)
 
         except (json.JSONDecodeError, TypeError, ValueError):
             data = {}
 
         return self._normalize_task_data({**data, "title": title})
+
