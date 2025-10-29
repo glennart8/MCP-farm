@@ -1,21 +1,5 @@
 [
   {
-    "title": "Kitta fönster",
-    "priority": 3,
-    "description": "Ej specificerat",
-    "preparations": "Ej specificerat",
-    "practical_desc": "Ej specificerat",
-    "grants": "Ej specificerat"
-  },
-  {
-    "title": "stängsla första fårhagen",
-    "priority": 2,
-    "description": "Ej specificerat",
-    "preparations": "Ej specificerat",
-    "practical_desc": "Ej specificerat",
-    "grants": "Ej specificerat"
-  },
-  {
     "title": "Reparera gärdesgård vid kohagen",
     "priority": 1,
     "description": "Uppgiften innebär att reparera och återställa en gärdesgård intill en kohage. Syftet är att säkerställa att djuren hålls inom hagen på ett säkert sätt och att förhindra rymningar, vilket kan leda till skador på djur eller egendom. Arbetet omfattar att åtgärda skadade stolpar, trasig tråd eller andra defekter som komprometterar gärdesgårdens funktion och stabilitet.",
@@ -70,5 +54,133 @@
     "preparations": "Samla spade, grep, skottkärra. Kontrollera vilka diken som behöver rensas.",
     "practical_desc": "Gräv ur slam och rötter. Se till att vattnet kan flöda fritt igen.",
     "grants": "Ej specificerat"
+  },
+  {
+    "title": "skrapa bort gammal färg från dörr",
+    "priority": 1,
+    "description": "Uppgiften innebär att noggrant avlägsna gammal, flagande färg från en dörryta för att förbereda den för ommålning eller en ny ytbehandling. Målet är att skapa en jämn och ren bas som optimerar vidhäftningen för den nya färgen och förbättrar dörrens estetik samt livslängd.",
+    "preparations": "Samla nödvändiga verktyg: färgskrapor i olika storlekar och former, sandpapper (grovt och fint), slipplatta eller slipmaskin, varmluftspistol (om färgen sitter hårt), skyddsglasögon, handskar, andningsskydd (särskilt viktigt om dörren är gammal och färgen kan innehålla bly), täckplast eller tidningar för att skydda golv och omgivande ytor, samt maskeringstejp. Demontera dörrhandtag, lås och gångjärn om möjligt, annars maskera dem noggrant. Säkerställ god ventilation i arbetsområdet.",
+    "practical_desc": "Börja med att försiktigt skrapa bort all lös och flagande färg med en bredare färgskrapa. För områden där färgen sitter hårt, använd en varmluftspistol för att värma och mjuka upp färgen; var mycket försiktig så att träet inte bränns eller skadas. Använd mindre skrapor och detaljverktyg för svåråtkomliga områden, lister och hörn. När all färg är bortskrapad, slipa dörrytan slät. Börja med ett grövre sandpapper för att jämna ut ojämnheter och avsluta med ett finare sandpapper för att få en helt slät yta. Torka noggrant bort allt slipdamm med en fuktig trasa eller klibbduk innan grundmålning eller vidare behandling.",
+    "grants": "Inga särskilda tillstånd eller bidrag krävs för att utföra denna uppgift på en privat dörr i ett privat hem. Om dörren är en del av en kulturhistorisk byggnad, en bostadsrättsförening eller liknande, kan specifika regler eller krav på material och metoder gälla. Kontrollera lokala bestämmelser vid osäkerhet."
+  },
+  {
+    "title": "klyv all ved",
+    "priority": 1,
+    "description": "Uppgiften innebär att processa större stockar eller vedbitar till mindre, mer hanterbara delar som är lämpliga att elda med i braskamin, öppen spis eller vedpanna. Detta görs vanligtvis för att säkra tillgången på bränsle för uppvärmning.",
+    "preparations": "Samla ihop all ved som ska klyvas och placera den på en lättillgänglig plats. Kontrollera att klyvverktygen (yxa, klyvyxa, vedklyv, kilar) är i gott skick och vassa. Se till att ha en stabil klyvstock eller annan lämplig yta att klyva på. Använd lämplig skyddsutrustning: skyddsglasögon, arbetshandskar och rejäla skor/kängor. Säkerställ att arbetsområdet är fritt från hinder och att ingen obehörig befinner sig för nära.",
+    "practical_desc": "Placera en vedbit stadigt på klyvstocken. Stå med en bred bas och lätt böjda knän, med ett säkert avstånd från vedbiten. Lyft yxan/klyvyxan över huvudet och svinga den nedåt med kraft, sikta mot mitten av vedbiten eller en befintlig spricka. Om vedbiten är svår att klyva, använd kilar och slägga. Vid användning av mekanisk vedklyv, följ maskinens instruktioner noggrant för säker och effektiv drift. Upprepa processen tills all ved är klyvd till önskad storlek. Stapla därefter den kluvna veden för torkning.",
+    "grants": "Tillgång till torr och effektiv ved för uppvärmning under kallare perioder. Fysisk träning och möjlighet till utomhusarbete. Minskade uppvärmningskostnader (om veden är egenhändigt insamlad/producerad). Tillfredsställelse av att ha utfört ett praktiskt och nyttigt arbete."
+  },
+  {
+    "title": "Så gräsfrö på nytt fält",
+    "priority": 4,
+    "description": "Förbered och så gräsfrö för att skapa en ny betesmark.",
+    "preparations": "Plöj och harva fältet. Köp lämpligt gräsfrö. Kontrollera väderprognosen.",
+    "practical_desc": "Använd såmaskin för jämn spridning. Vattna vid behov tills det gror.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Inspektera och reparera stängsel",
+    "priority": 4,
+    "description": "Kontrollera stängslets skick runt betesmarken och åtgärda brister.",
+    "preparations": "Hämta verktyg: hammare, tång, spik, stängseltråd. Gå igenom kartor.",
+    "practical_desc": "Gå längs stängslet, laga trasiga stolpar och spänn trådar.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Rengöra hönshuset",
+    "priority": 2,
+    "description": "Grundlig rengöring av hönshuset och reden.",
+    "preparations": "Töm ut hönsen. Samla verktyg: spade, borste, skottkärra.",
+    "practical_desc": "Skrapa bort smuts, sopa rent, strö ut nytt spån. Desinficera vid behov.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Anlägga ny grönsaksrabatt",
+    "priority": 4,
+    "description": "Skapa en ny odlingsbädd för grönsaker nära huset.",
+    "preparations": "Välj plats, mät ut, beställ jord och kompost. Samla verktyg.",
+    "practical_desc": "Gräv bort grässvål. Luckra upp jorden. Blanda i kompost. Forma bädden.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Plantera potatis",
+    "priority": 4,
+    "description": "Sätta potatisknölar i jorden för skörd.",
+    "preparations": "Förbered jorden, skaffa sättpotatis, hämta redskap.",
+    "practical_desc": "Gräv fåror, placera potatis, täck med jord. Vattna vid behov.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Röja sly längs åkerkanterna",
+    "priority": 3,
+    "description": "Ta bort sly och buskar som växer in på åkern och gränserna.",
+    "preparations": "Kontrollera röjsåg/motorsåg och säkerhetsutrustning. Tank bensin.",
+    "practical_desc": "Arbeta metodiskt längs hela åkerkanten. Samla ihop och bränn/kompostera riset.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Rengör djurstallarna",
+    "priority": 3,
+    "description": "Ta bort gammalt strö och gödsel, desinficera.",
+    "preparations": "Samla verktyg: spade, skottkärra, desinfektionsmedel, nytt strö.",
+    "practical_desc": "Skotta ut gammalt material. Spraya desinfektionsmedel. Lägg ut nytt strö.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Röja sly i skogskanten",
+    "priority": 4,
+    "description": "Ta bort ungträd och buskar som hindrar större träds tillväxt.",
+    "preparations": "Kontrollera verktyg. Säkerställ skyddsutrustning. Planera röjningsområde.",
+    "practical_desc": "Använd röjsåg eller yxa. Röj systematiskt. Samla ris på högar.",
+    "grants": "Möjliga bidrag för skogsvård. Kontakta Skogsstyrelsen."
+  },
+  {
+    "title": "Rensa avloppsbrunnar på gården",
+    "priority": 4,
+    "description": "Förhindra översvämningar genom att rensa brunnar och rör från skräp.",
+    "preparations": "Skaffa rensverktyg, handskar och skyddsglasögon. Kontrollera brunnarnas läge.",
+    "practical_desc": "Öppna brunnslock, ta bort skräp manuellt. Spola med vatten vid behov.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Rengöra hönshuset grundligt",
+    "priority": 4,
+    "description": "Utför grundlig rengöring av hönshuset för att säkerställa god hygien och hälsa.",
+    "preparations": "Skaffa strö, desinfektionsmedel, skrapa och skyddsutrustning. Flytta ut hönsen.",
+    "practical_desc": "Töm huset på gammalt strö och smuts. Skrapa ytor, desinficera och fyll på nytt strö.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "kitta fönster",
+    "priority": 1,
+    "description": "Att kitta fönster innebär att applicera en elastisk massa (fönsterkitt) runt fönsterglaset för att fästa det i bågen och täta mot väder och vind. Det är en viktig del av fönsterunderhåll och restaurering, särskilt för äldre träfönster, för att skydda träet, förbättra isoleringen och förlänga fönstrets livslängd.",
+    "preparations": "Demontera fönsterbågen om möjligt för enklare åtkomst. Skrapa bort allt gammalt fönsterkitt försiktigt med en kittkniv eller ett stämjärn. Ta bort eventuella spikar som höll glaset på plats (glasstift). Lyft ut glaset försiktigt och rengör det. Inspektera fönsterbågen för röta eller skador. Reparera vid behov. Rengör fönsterbågen noggrant från damm, smuts och lösa partiklar. Olja in eller grunda fönsterbågens trä där glaset ska sitta för att förhindra att träet suger fukt ur kittet och för att säkerställa god vidhäftning. Lägg en tunn sträng grundkitt (bottenkitt) i falsen innan glaset läggs tillbaka. Sätt tillbaka glaset och fäst det med nya glasstift med ca 15-20 cm mellanrum.",
+    "practical_desc": "Förbered kittet: Om det är oljebaserat kitt, knåda det tills det är mjukt och smidigt. Akrylkitt levereras ofta färdigt att använda. Ta en lämplig mängd kitt och forma det till en rulle eller sträng. Applicera kittet jämnt längs kanten mellan glaset och fönsterbågen. Tryck till så att det fyller falsen ordentligt. Använd en kittkniv för att forma kittet till en jämn, sluttande yta. Vinkeln ska leda bort vatten från glaset och vara ca 45 grader eller mer. Dra kniven med ett jämnt tryck längs hela kanten för en slät finish. Se till att kittet täcker glasstiften helt. Skrapa bort överflödigt kitt från glaset med en vass kniv eller rakblad. Var noga med att inte skada glaset eller kittfogen. Låt kittet härda enligt tillverkarens anvisningar. Torktiden kan variera från dagar till veckor beroende på typ av kitt och väderförhållanden. När kittet är genomhärdat, måla över det med fönsterfärg. Färgen skyddar kittet och förlänger dess livslängd.",
+    "grants": "Kulturstöd: För fönsterrenovering på kulturhistoriskt värdefulla byggnader kan det finnas möjlighet att söka bidrag från länsstyrelsen eller regionala kulturarvsfonder. Energibidrag: I vissa fall kan åtgärder som förbättrar fönstrens isolerförmåga (t.ex. i kombination med byte till energiglas) kvalificera för lokala eller regionala energibidrag, särskilt i äldre byggnader. Kontrollera med din kommun eller energimyndighet. Rotavdrag: Arbetet med att kitta fönster räknas som reparation och underhåll och ger rätt till rotavdrag för arbetskostnaden. Detta innebär att 30% av arbetskostnaden kan dras av direkt på fakturan, upp till ett visst maxtak per person och år."
+  },
+  {
+    "title": "Rengöra djurstallen",
+    "priority": 2,
+    "description": "Ta bort gammal strö och gödsel från djurstallarna för bättre hygien.",
+    "preparations": "Samla ihop skottkärra, grep, spade. Säkerställ tillgång till ny strö.",
+    "practical_desc": "Skotta ut allt gammalt material. Rengör golvet. Sprid ut ny, ren strö.",
+    "grants": "Ej specificerat"
+  },
+  {
+    "title": "Slipa kedjor för sågverket",
+    "priority": 1,
+    "description": "Underhållsuppgift som syftar till att återställa sågkedjornas skärpa och effektivitet. Detta är avgörande för att säkerställa optimal prestanda hos sågverksutrustningen, minska slitage på maskiner, förbättra sågkvaliteten och förlänga kedjornas livslängd.",
+    "preparations": "Samla ihop alla kedjor som behöver slipas. Rengör kedjorna noggrant från sågspån, harts och oljerester. Kontrollera varje kedja för skador som sprickor, böjda länkar eller saknade tänder. Säkerställ att rätt slipverktyg (t.ex. motorsågsslip, filar, djupmåttsfil) och skyddsutrustning (handskar, skyddsglasögon) finns tillgängliga och är i gott skick. Förbered en stabil och välbelyst arbetsplats.",
+    "practical_desc": "Fäst kedjan säkert i en skruvstäd eller i den avsedda slipmaskinen. Identifiera kedjans specifika slipvinkel och djupmått. Slipa varje tand jämnt och konsekvent, ofta genom att arbeta från en sida av kedjan först och sedan den andra. Kontrollera och justera djupmåtten vid behov för att säkerställa korrekt spåndjup. Efter slipning, inspektera kedjan visuellt för att bekräfta att alla tänder är skarpa och har rätt vinkel. Applicera eventuellt ett rostskyddsmedel eller lätt smörjmedel före lagring.",
+    "grants": "Grundläggande förståelse för motorsågskedjors konstruktion och funktion. Kunskap om olika slipvinklar och djupmått. Förmåga att hantera slipverktyg säkert och effektivt. Utbildning i säkerhetsrutiner vid arbete med vassa verktyg och maskiner. Giltigt förarbevis eller intern utbildning för användning av specifika slipmaskiner kan krävas."
+  },
+  {
+    "title": "Bygg ett bjälklag i gamla höloftet",
+    "priority": 1,
+    "description": "Detta projekt syftar till att konstruera ett robust och säkert bjälklag i det befintliga gamla höloftet. Målet är att omvandla loftet från en oanvänd yta till ett funktionellt utrymme, exempelvis för förvaring, hobbyverksamhet eller som grund för framtida bostadsutrymme. Arbetet innefattar dimensionering, materialval, konstruktion av bärande balksystem och läggning av undergolv, med fokus på stabilitet, bärighet och lång livslängd i en gammal byggnadsmiljö.",
+    "preparations": "1. **Inspektion och bedömning:** Noggrann undersökning av befintlig byggnadsstruktur, väggar, tak och grund för att säkerställa bärighet och identifiera eventuella förstärkningsbehov. Bedömning av fukt, skadedjur och röta. 2. **Måttagning och ritning:** Detaljerade mått av loftutrymmet. Framtagande av en konstruktionsritning som specificerar bjälklagets dimensioner, bjälkavstånd, infästningsmetoder och materialval. 3. **Bärighetsberäkningar:** Beräkningar av bjälklagets lastkapacitet baserat på avsedd användning (t.ex. lätt förvaring, bostadsyta) och gällande byggnormer. 4. **Materialinköp:** Inköp av virke (bjälkar, golvskivor, reglar), fästdon (spik, skruv, bjälkskor), eventuella isoleringsmaterial, fuktspärr samt verktyg (såg, borrmaskin, vattenpass, vinkelhake, måttband, skyddsutrustning). 5. **Tillstånd och lov:** Kontrollera med kommunen om bygglov eller anmälan krävs för att ändra användningen av utrymmet eller för större konstruktionsändringar.",
+    "practical_desc": "1. **Röjning och rengöring:** Töm loftet på gammalt material och skräp. Rengör ytorna noggrant. 2. **Förstärkning (vid behov):** Utför eventuella nödvändiga förstärkningar av bärande väggar eller anslutande konstruktioner. 3. **Montering av bärlinor/regelverk:** Fäst bärlinor (bärande reglar) längs väggarna där bjälkarna ska vila, om sådana behövs. Se till att de är vågräta och ordentligt infästa i byggnadens stomme. 4. **Kapning och placering av bjälkar:** Kapa bjälkarna till rätt längd enligt ritning. Placera ut bjälkarna med korrekt avstånd, se till att de är raka och i våg. Använd bjälkskor eller annan godkänd infästningsmetod för att säkra bjälkarna vid bärlinor eller andra bärande delar. 5. **Stagning och kortlingar:** Montera kortlingar (tvärgående reglar) eller diagonala staganordningar mellan bjälkarna för att öka stabiliteten och förhindra vridning. 6. **Läggning av undergolv:** Kapa och montera undergolvsskivor (t.ex. OSB eller plywood) ovanpå bjälkarna. Skivorna ska läggas omlott med förskjutna skarvar och fästas ordentligt med skruv eller spik enligt tillverkarens rekommendationer, med beaktande av expansionsfogar. 7. **Kontroll och justering:** Kontrollera att hela bjälklaget är i våg, stabilt och fritt från knarr eller svikt. Utför eventuella finjusteringar.",
+    "grants": "I Sverige kan projekt av denna typ potentiellt kvalificera för: 1. **ROT-avdrag:** Kostnader för arbete med ombyggnation och renovering kan ge rätt till skattereduktion (max 50 000 kr per person och år). 2. **Landsbygdsstöd:** Beroende på byggnadens läge och avsedd användning (t.ex. omvandling till näringsverksamhet eller boende på landsbygden) kan det finnas regionala eller statliga stöd via Länsstyrelsen eller Jordbruksverket. 3. **Kulturmiljöstöd:** Om höloftet ingår i en kulturhistoriskt värdefull byggnad kan det finnas möjlighet att söka bidrag för varsam renovering och bevarande från Länsstyrelsen eller Riksantikvarieämbetet. 4. **Kommunala bidrag:** Vissa kommuner kan ha egna bidrag eller lån för bostadsanpassning eller utveckling av äldre byggnader, det är värt att undersöka lokalt."
   }
 ]

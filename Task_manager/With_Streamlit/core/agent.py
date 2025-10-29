@@ -14,32 +14,27 @@ class Agent:
         )
 
     def decide(self, observation: Observation) -> Action:
-        """Analyserar observationen och returnerar nästa steg (typ av action)."""
-
-        # 1. Dubbletter
+        """Analyserar observationen och returnerar nästa action."""
         action = self._handle_duplicates(observation)
         if action:
             return action
 
-        # 2. Ofullständiga tasks
         action = self._handle_incomplete_tasks(observation)
         if action:
             return action
 
-        # 3. Nya uppgifter
         action = self._handle_task_creation(observation)
         if action:
             return action
 
-        # 4. Inget kvar att göra
         return Action(type="none", info="All tasks already completed.")
-    
-    # Dubletter
-    def _handle_duplicates(self, observation: Observation) -> Action | None:
-        index = self._find_duplicates(observation)
-        if index is not None:
-            return Action(type="delete", index=index, info="Removed duplicate task")
-        return None
+        
+        # Dubletter
+        def _handle_duplicates(self, observation: Observation) -> Action | None:
+            index = self._find_duplicates(observation)
+            if index is not None:
+                return Action(type="delete", index=index, info="Removed duplicate task")
+            return None
     
     def _find_duplicates(self, observation: Observation) -> int | None:
         """Returnerar index för första duplicerade task, eller None om inga finns."""
@@ -57,6 +52,7 @@ class Agent:
         if not incomplete:
             return None
 
+        # Ta den med högst prio
         target = max(incomplete, key=lambda t: t.priority)
         index = observation.tasks.index(target)
         enriched = self._enrich_task(target.title)
@@ -64,7 +60,12 @@ class Agent:
 
     # Skapa task    
     def _handle_task_creation(self, observation: Observation) -> Action | None:
-        if len(observation.tasks) <= 20:
+        # Skapa ny task BARA om inga ofullständiga finns
+        incomplete = [t for t in observation.tasks if not t.description]
+        if incomplete:
+            return None
+
+        if len(observation.tasks) <= 15:
             new_task = self._create_task()
             return Action(type="add", task=new_task)
         return None
@@ -129,6 +130,8 @@ class Agent:
             "practical_desc": "Måla två lager med torktid emellan. Börja från toppen.",
             "grants": "Ej specificerat"
         }
+        
+        Ange hållbara metoder och material när du t.ex. skapar "preparations" och practical_desc".
         """
         
         response = self.client.chat.completions.create(
@@ -156,6 +159,18 @@ class Agent:
         description, preparations, practical_desc, grants
         Skriv **endast JSON**, fyll ALLA fält.
         Om du inte har information, skriv "Ej specificerat".
+        VIKTIGT: Håll dig kortfattad med max 100 tecken per fält!
+
+        
+        Exempel:
+            {
+            "title": "Plantera potatis",
+            "priority": 4,
+            "description": "Sätta potatisknölar i jorden för skörd.",
+            "preparations": "Förbered jorden, skaffa sättpotatis, hämta redskap.",
+            "practical_desc": "Gräv fåror, placera potatis, täck med jord. Vattna vid behov.",
+            "grants": "För visst jordbruk finns bidrag att söka, enligt jordbruksverket...."
+            },
         """
         try:
             response = self.client.chat.completions.create(

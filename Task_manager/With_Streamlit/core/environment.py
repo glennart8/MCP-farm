@@ -1,6 +1,9 @@
 import json
 from pathlib import Path
 from .models import Task, Observation, Action
+from agent import Agent
+
+agent = Agent()
 
 class Environment:
     def __init__(self, file_path="tasks.json"):
@@ -38,32 +41,28 @@ class Environment:
     def observe(self) -> Observation:
         return Observation(tasks=self.tasks)
     
-    def act(self, action: "Action"):
-        """Utför en handling som agenten har beslutat."""
-        
+    def act(self, action: Action):
+        """Utför en given action från agenten."""
         if action.type == "delete" and action.index is not None:
             removed = self.tasks.pop(action.index)
             self._save()
             return f"Deleted: {removed.title}"
-        
-        elif action.type == "add" and action.task:
-            # Om agenten skickar en dict, gör om till Task
+
+        if action.type == "update" and action.index is not None and action.task:
+            self.tasks[action.index] = action.task
+            self._save()
+            return f"Updated: {self.tasks[action.index].title}"
+
+        if action.type == "add" and action.task:
             if not isinstance(action.task, Task):
                 action.task = Task(**action.task)
             self.tasks.append(action.task)
             self._save()
             return f"Added: {action.task.title}"
 
-        elif action.type == "update" and action.index is not None and action.task:
-            for key, val in action.task.model_dump().items():
-                if val is not None:
-                    setattr(self.tasks[action.index], key, val)
-            self._save()
-            return f"Updated: {self.tasks[action.index].title}"
+        return "Nothing to do."
 
 
-        elif action.type == "none":
-            return "Nothing to do."
 
-        else:
-            return "Unknown action type."
+
+
