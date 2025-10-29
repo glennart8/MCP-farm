@@ -2,7 +2,13 @@
 
 Detta projekt är en **intelligent uppgifts- och prioriteringshanterare** för småbruk eller gemenskaper. Systemet använder en **agent/LLM** för att generera, berika och sortera uppgifter baserat på prioritet, säsong och annan relevant information.
 
----
+
+## --- MCP FLOW ---
+    
+  - 1. Observe (ENVIROMENT) - Skickar in alla tasks
+  - 2. Decide (AGENT)       - Returnerar actions beroende på logik - dubletter, len() på lista, saknade värden
+  - 3. Act (ENVIROMENT)     - Gör actions - ta bort, lägg till, uppdatera
+
 
 ## Funktioner
 

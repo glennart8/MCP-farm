@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from .models import Task, Observation, Action
 
+# Agenten ska ta beslutet och skicka själva beslutet till enviroment
+
 load_dotenv()
 
 class Agent:
@@ -29,13 +31,14 @@ class Agent:
 
         return Action(type="none", info="All tasks already completed.")
         
-        # Dubletter
-        def _handle_duplicates(self, observation: Observation) -> Action | None:
-            index = self._find_duplicates(observation)
-            if index is not None:
-                return Action(type="delete", index=index, info="Removed duplicate task")
-            return None
+    # Dubletter
+    def _handle_duplicates(self, observation: Observation) -> Action | None:
+        index = self._find_duplicates(observation)
+        if index is not None:
+            return Action(type="delete", index=index, info="Removed duplicate task")
+        return None
     
+    # Skapar lista över tasks, loopar observationslistan, lägger titeln i listan, hittas en match, returneras index för den tasken
     def _find_duplicates(self, observation: Observation) -> int | None:
         """Returnerar index för första duplicerade task, eller None om inga finns."""
         titles_seen = set()
@@ -65,7 +68,7 @@ class Agent:
         if incomplete:
             return None
 
-        if len(observation.tasks) <= 15:
+        if len(observation.tasks) <= 20:
             new_task = self._create_task()
             return Action(type="add", task=new_task)
         return None
@@ -181,7 +184,6 @@ class Agent:
             raw = response.choices[0].message.content.strip()
 
             cleaned_raw = self._delete_markdown(raw)
-
             data = json.loads(cleaned_raw)
 
         except (json.JSONDecodeError, TypeError, ValueError):

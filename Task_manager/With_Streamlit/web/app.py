@@ -8,7 +8,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-
 image_url = "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1378"
 
 st.markdown(
@@ -28,8 +27,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# # Lägg till projektets root-mapp (With_Streamlit) i sys.path
-# sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 env = Environment()
 agent = Agent()
@@ -68,6 +65,7 @@ with col2:
         st.write(f"**Förberedelser:** {selected_task.practical_desc}")
         st.write(f"**Grants:** {selected_task.grants}")
 
+
 with col1:        
     # Generera task via Gemini
     st.header("Generera ny uppgift")
@@ -77,7 +75,14 @@ with col1:
         st.success(f"Ny uppgift skapad: {new_task.title}")
         st.write(f"Beskrivning: {new_task.description}")
 
-    # MCP - Observe, decide, act
+
+
+    """ --- MCP FLOW ---
+    1. Observe (ENVIROMENT) - Skickar in alla tasks
+    2. Decide (AGENT)       - Returnerar actions beroende på logik - dubletter, len() på lista, saknade värden
+    3. Act (ENVIROMENT)     - Gör actions - ta bort, lägg till, uppdatera
+    """
+    
     st.header("Låt agenten agera")
     if st.button("Kör agent"):
         while True:
@@ -87,5 +92,6 @@ with col1:
             st.write(result)
             if action.type == "none":
                 break
+            
 with col2:
     pass

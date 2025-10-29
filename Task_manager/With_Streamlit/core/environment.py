@@ -3,6 +3,8 @@ from pathlib import Path
 from .models import Task, Observation, Action
 from agent import Agent
 
+# Enviroment ansvarar för hantering av data, visa, skapa, ta bort osv. 
+
 agent = Agent()
 
 class Environment:
