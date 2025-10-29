@@ -46,16 +46,19 @@ with col1:
             new_task = env.add_task(title=title, priority=priority)
             st.success(f"Ny uppgift skapad: {new_task.title} (prio {new_task.priority})")
             
-# Hämta uppgifter och titlar
-tasks = env.get_tasks()
-task_titles = [t.title for t in tasks]
-
+# --- Hämta uppgifter och titlar ---
 with col2:
+    tasks = env.get_tasks()
+    
+    # Skapa en lista med titel och prioritet ihopslagna
+    sorted_tasks = sorted(tasks, key=lambda t: -t.priority)
+    task_and_prio = [f"{t.title} - Prio: {t.priority}" for t in sorted_tasks]
+
     st.subheader("Välj en uppgift")
+    selected_option = st.selectbox("Välj en task:", task_and_prio)
 
-    selected_title = st.selectbox("Välj en task:", task_titles)
-
-    # Hitta det task-objekt som matchar det valda namnet
+    # Ta bort prioritet ur task_and_prio
+    selected_title = selected_option.split(' - Prio:')[0]
     selected_task = next((t for t in tasks if t.title == selected_title), None)
 
     if selected_task:
@@ -74,15 +77,8 @@ with col1:
         env.add_generated_task(new_task)
         st.success(f"Ny uppgift skapad: {new_task.title}")
         st.write(f"Beskrivning: {new_task.description}")
-
-
-
-    """ --- MCP FLOW ---
-    1. Observe (ENVIROMENT) - Skickar in alla tasks
-    2. Decide (AGENT)       - Returnerar actions beroende på logik - dubletter, len() på lista, saknade värden
-    3. Act (ENVIROMENT)     - Gör actions - ta bort, lägg till, uppdatera
-    """
     
+    # MCP - Observe, decide, act
     st.header("Låt agenten agera")
     if st.button("Kör agent"):
         while True:
