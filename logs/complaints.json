@@ -1,0 +1,8 @@
+[
+  {
+    "from": "kund1@example.com",
+    "subject": "Reklamation av produkt",
+    "body": "Produkten gick sönder efter en dag.",
+    "status": "open"
+  }
+]

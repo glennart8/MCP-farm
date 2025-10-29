@@ -7,7 +7,6 @@ load_dotenv()
 
 
 class Agent:
-    """AI som analyserar inkommande mejl och fattar beslut."""
     def __init__(self):
         self.client = OpenAI(
             api_key=os.getenv("GEMINI_API_KEY"),

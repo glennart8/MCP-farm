@@ -1,9 +1,8 @@
-from agent import Agent
-from environment import Environment
-
+from classes.agent import Agent
+from classes.environment import Environment
 
 class Controller:
-    """Orkestrerar hela MCP-cykeln."""
+    """MCP-cykeln."""
     def __init__(self):
         self.env = Environment()
         self.agent = Agent()
@@ -18,7 +17,7 @@ class Controller:
             for email in emails:
                 decision = self.agent.decide(email)
                 self.env.act(email, decision)
-                self.env.log_inbox()
+                self.env.save_logs()
 
 if __name__ == "__main__":
     Controller().run()
