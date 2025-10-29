@@ -182,5 +182,21 @@
     "preparations": "1. **Inspektion och bedömning:** Noggrann undersökning av befintlig byggnadsstruktur, väggar, tak och grund för att säkerställa bärighet och identifiera eventuella förstärkningsbehov. Bedömning av fukt, skadedjur och röta. 2. **Måttagning och ritning:** Detaljerade mått av loftutrymmet. Framtagande av en konstruktionsritning som specificerar bjälklagets dimensioner, bjälkavstånd, infästningsmetoder och materialval. 3. **Bärighetsberäkningar:** Beräkningar av bjälklagets lastkapacitet baserat på avsedd användning (t.ex. lätt förvaring, bostadsyta) och gällande byggnormer. 4. **Materialinköp:** Inköp av virke (bjälkar, golvskivor, reglar), fästdon (spik, skruv, bjälkskor), eventuella isoleringsmaterial, fuktspärr samt verktyg (såg, borrmaskin, vattenpass, vinkelhake, måttband, skyddsutrustning). 5. **Tillstånd och lov:** Kontrollera med kommunen om bygglov eller anmälan krävs för att ändra användningen av utrymmet eller för större konstruktionsändringar.",
     "practical_desc": "1. **Röjning och rengöring:** Töm loftet på gammalt material och skräp. Rengör ytorna noggrant. 2. **Förstärkning (vid behov):** Utför eventuella nödvändiga förstärkningar av bärande väggar eller anslutande konstruktioner. 3. **Montering av bärlinor/regelverk:** Fäst bärlinor (bärande reglar) längs väggarna där bjälkarna ska vila, om sådana behövs. Se till att de är vågräta och ordentligt infästa i byggnadens stomme. 4. **Kapning och placering av bjälkar:** Kapa bjälkarna till rätt längd enligt ritning. Placera ut bjälkarna med korrekt avstånd, se till att de är raka och i våg. Använd bjälkskor eller annan godkänd infästningsmetod för att säkra bjälkarna vid bärlinor eller andra bärande delar. 5. **Stagning och kortlingar:** Montera kortlingar (tvärgående reglar) eller diagonala staganordningar mellan bjälkarna för att öka stabiliteten och förhindra vridning. 6. **Läggning av undergolv:** Kapa och montera undergolvsskivor (t.ex. OSB eller plywood) ovanpå bjälkarna. Skivorna ska läggas omlott med förskjutna skarvar och fästas ordentligt med skruv eller spik enligt tillverkarens rekommendationer, med beaktande av expansionsfogar. 7. **Kontroll och justering:** Kontrollera att hela bjälklaget är i våg, stabilt och fritt från knarr eller svikt. Utför eventuella finjusteringar.",
     "grants": "I Sverige kan projekt av denna typ potentiellt kvalificera för: 1. **ROT-avdrag:** Kostnader för arbete med ombyggnation och renovering kan ge rätt till skattereduktion (max 50 000 kr per person och år). 2. **Landsbygdsstöd:** Beroende på byggnadens läge och avsedd användning (t.ex. omvandling till näringsverksamhet eller boende på landsbygden) kan det finnas regionala eller statliga stöd via Länsstyrelsen eller Jordbruksverket. 3. **Kulturmiljöstöd:** Om höloftet ingår i en kulturhistoriskt värdefull byggnad kan det finnas möjlighet att söka bidrag för varsam renovering och bevarande från Länsstyrelsen eller Riksantikvarieämbetet. 4. **Kommunala bidrag:** Vissa kommuner kan ha egna bidrag eller lån för bostadsanpassning eller utveckling av äldre byggnader, det är värt att undersöka lokalt."
+  },
+  {
+    "title": "Fäll träd på berget",
+    "priority": 1,
+    "description": "Säker trädfällning på brant, bergig terräng. Röja mark eller skörda virke.",
+    "preparations": "Riskbedömning, fällplan, säkerhetszon, vassa verktyg, ev. klätterutrustning.",
+    "practical_desc": "Använd motorsåg och fällkilar. Arbeta uppifrån eller med vinsch. Följ säkerhetsrutiner.",
+    "grants": "Motorsågskörkort (C/D), markägarens tillstånd. Ev. tillstånd för terrängfordon."
+  },
+  {
+    "title": "Grusa vägen",
+    "priority": 1,
+    "description": "Underhåll av grusväg för att förbättra framkomlighet och minska damm.",
+    "preparations": "Beställ grus, hyr maskiner, informera boende, säkra tillfart.",
+    "practical_desc": "Sprid ut grus jämnt med väghyvel. Komprimera ytan för hållbarhet. Följ säkerhetsföreskrifter.",
+    "grants": "Möjlighet till bidrag för enskilda vägar via Trafikverket eller kommunala stöd."
   }
 ]

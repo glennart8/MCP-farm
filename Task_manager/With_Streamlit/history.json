@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2025-10-29T12:57:23.930414",
+    "action": "updated",
+    "title": "Fäll träd på berget",
+    "priority": 1,
+    "description": "Säker trädfällning på brant, bergig terräng. Röja mark eller skörda virke.",
+    "preparations": "Riskbedömning, fällplan, säkerhetszon, vassa verktyg, ev. klätterutrustning.",
+    "practical_desc": "Använd motorsåg och fällkilar. Arbeta uppifrån eller med vinsch. Följ säkerhetsrutiner.",
+    "grants": "Motorsågskörkort (C/D), markägarens tillstånd. Ev. tillstånd för terrängfordon.",
+    "info": ""
+  },
+  {
+    "timestamp": "2025-10-29T12:58:20.759717",
+    "action": "updated",
+    "title": "Grusa vägen",
+    "priority": 1,
+    "description": "Underhåll av grusväg för att förbättra framkomlighet och minska damm.",
+    "preparations": "Beställ grus, hyr maskiner, informera boende, säkra tillfart.",
+    "practical_desc": "Sprid ut grus jämnt med väghyvel. Komprimera ytan för hållbarhet. Följ säkerhetsföreskrifter.",
+    "grants": "Möjlighet till bidrag för enskilda vägar via Trafikverket eller kommunala stöd.",
+    "info": ""
+  }
+]

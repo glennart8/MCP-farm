@@ -1,6 +1,18 @@
+import sys
+from pathlib import Path
+
+# Lägg till root-mappen (With_Streamlit) i sys.path
+root = Path(__file__).parent.parent.resolve()
+sys.path.append(str(root))
+
+
 import streamlit as st
+import core.environment
+print(core.environment.__file__)  # <-- här ser du exakt vilken fil som används
 from core.environment import Environment
 from core.agent import Agent
+from core.history_manager import HistoryManager
+
 
 st.set_page_config(
     page_title="TaskFarm",
@@ -27,8 +39,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-env = Environment()
+history_manager = HistoryManager()
+env = Environment(history_manager=history_manager)
 agent = Agent()
 
 st.title("Task Manager")

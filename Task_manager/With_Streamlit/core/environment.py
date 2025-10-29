@@ -1,17 +1,23 @@
 import json
 from pathlib import Path
 from .models import Task, Observation, Action
-from agent import Agent
+from .agent import Agent
 
 # Enviroment ansvarar för hantering av data, visa, skapa, ta bort osv. 
 
 agent = Agent()
 
 class Environment:
-    def __init__(self, file_path="tasks.json"):
+    def __init__(self, file_path="tasks.json", history_manager=None):
         self.file_path = Path(file_path)
         self.tasks = []
         self._load()
+        self.history_manager = history_manager
+
+    # För att spara loggar
+    def _log(self, action_type, task, info=""):
+        if self.history_manager:
+            self.history_manager.log_action(action_type, task, info)
 
     def _load(self):
         if self.file_path.exists():
@@ -48,21 +54,24 @@ class Environment:
         if action.type == "delete" and action.index is not None:
             removed = self.tasks.pop(action.index)
             self._save()
-            return f"Deleted: {removed.title}"
+            self._log("deleted", removed)
+            return f"Borttagen: {removed.title}"
 
         if action.type == "update" and action.index is not None and action.task:
             self.tasks[action.index] = action.task
             self._save()
-            return f"Updated: {self.tasks[action.index].title}"
+            self._log("updated", action.task)
+            return f"Uppdaterad: {self.tasks[action.index].title}"
 
         if action.type == "add" and action.task:
             if not isinstance(action.task, Task):
                 action.task = Task(**action.task)
             self.tasks.append(action.task)
             self._save()
-            return f"Added: {action.task.title}"
+            self._log("added", action.task)
+            return f"Tillagd: {action.task.title}"
 
-        return "Nothing to do."
+        return "Inget att göra."
 
 
 

@@ -158,23 +158,24 @@ class Agent:
 
     def _enrich_task(self, title: str) -> Task:
         prompt = f"""
-        Förbättra uppgiften '{title}' med fälten:
-        description, preparations, practical_desc, grants
-        Skriv **endast JSON**, fyll ALLA fält.
-        Om du inte har information, skriv "Ej specificerat".
-        VIKTIGT: Håll dig kortfattad med max 100 tecken per fält!
-
-        
+    Förbättra uppgiften '{title}' med fälten:
+    description, preparations, practical_desc, grants
+    Skriv **endast JSON**, fyll ALLA fält.
+    Om du inte har information, skriv "Ej specificerat".
+    VIKTIGT: Håll dig kortfattad med max 100 tecken per fält!
+    
         Exempel:
-            {
-            "title": "Plantera potatis",
-            "priority": 4,
-            "description": "Sätta potatisknölar i jorden för skörd.",
-            "preparations": "Förbered jorden, skaffa sättpotatis, hämta redskap.",
-            "practical_desc": "Gräv fåror, placera potatis, täck med jord. Vattna vid behov.",
-            "grants": "För visst jordbruk finns bidrag att söka, enligt jordbruksverket...."
-            },
-        """
+    {{
+        "title": "Plantera potatis",
+        "priority": 4,
+        "description": "Sätta potatisknölar i jorden för skörd.",
+        "preparations": "Förbered jorden, skaffa sättpotatis, hämta redskap.",
+        "practical_desc": "Gräv fåror, placera potatis, täck med jord. Vattna vid behov.",
+        "grants": "För visst jordbruk finns bidrag att söka, enligt jordbruksverket...."
+    }}
+    
+    """
+    
         try:
             response = self.client.chat.completions.create(
                 model="gemini-2.5-flash",
@@ -182,12 +183,12 @@ class Agent:
                 temperature=0.8,
             )
             raw = response.choices[0].message.content.strip()
-
             cleaned_raw = self._delete_markdown(raw)
             data = json.loads(cleaned_raw)
-
         except (json.JSONDecodeError, TypeError, ValueError):
             data = {}
 
         return self._normalize_task_data({**data, "title": title})
+
+
 
