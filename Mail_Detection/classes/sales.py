@@ -43,4 +43,4 @@ class SalesSystem:
         customer_nr += 1
         
     def send_confirmation_email(self, product):
-        print(f"Låtsasskickar en bekräftelse för: {product}")
+        print(f"Skickar en bekräftelse för: {product}")

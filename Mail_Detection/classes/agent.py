@@ -29,9 +29,14 @@ class Agent:
             "decision": "support" | "sales" | "meeting" | "other",
             "reason": "Kort förklaring varför"
             "product": "T.ex. 'banan'"
+            "meeting_time": "YYYY-MM-DDTHH:MM:SS"  # om mailet är ett möte
         }}
         
         Om du väljer "sales", skicka med produkten som kunden vill köpa också.
+        
+        Om du väljer "meeting":
+            Extrahera datum och tid för mötet i ISO-format (YYYY-MM-DDTHH:MM:SS) och returnera ENBART som JSON:
+            {{"decision": "meeting", "meeting_time": "2025-11-01T10:00:00"}}
         """
 
         response = self.client.chat.completions.create(
@@ -49,7 +54,8 @@ class Agent:
             data = json.loads(raw)
             decision = data.get("decision", "other")
             product = data.get("product")  # kan bli None om det inte finns
-            return decision, product
+            meeting_time = data.get("meeting_time")  # kan vara None
+            return decision, product, meeting_time
         except json.JSONDecodeError:
             print("AI-svaret gick inte att tolka:", raw)
             return "other"
@@ -99,18 +105,16 @@ class SalesAgent:
         
     def write_response_to_order(self, email):
         prompt = f"""
-        Du är en kontorsassistent som skicka bekräftelse mail om ett köp. Läs {email} och skapa ett anpassat, trevligt och kort svar.
-        
-        Innehåll: 
-        Bekräftelse på emottagande av mail och vad som önskas köpa.
-        
-        Skriv: Detta mail skickades: {now}
-        
-        Avsluta med att önska en fortsatt trevligt dag/kväll.
-        Med vänliga hälsningar,
+        Du är en vänlig kontorsassistent som skriver ett kvitto/bekräftelse på ett köp. 
+        Läs följande kundmail: {email}
 
-        [Köpassistenten]
-        [Det orubbliga företaget]
+        Skapa ett kort, professionellt och trevligt svar som innehåller:
+        1. Bekräftelse på att kundens beställning har mottagits.
+        2. Specificera vad kunden önskar köpa (om det framgår av mailet).
+        3. Tiden då kvittot skickas: {now}
+        4. Avsluta med en vänlig hälsning och önska en fortsatt trevlig dag/kväll.
+
+        Skriv svaret på ett sätt som kan skickas direkt till kunden.
         """
 
         response = self.client.chat.completions.create(

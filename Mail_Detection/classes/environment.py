@@ -4,7 +4,8 @@ from classes.complaints import ComplaintsSystem
 from classes.mail import EmailClient
 from classes.sales import SalesSystem
 from classes.autoresponder import AutoResponder
-
+from classes.calendar import CalendarHandler
+from datetime import datetime, timedelta
 
 class Environment:
     """Hantera e-postflödet och exekvering av AI-beslut."""
@@ -13,6 +14,7 @@ class Environment:
         self.complaints = ComplaintsSystem()
         self.sales = SalesSystem()
         self.auto = AutoResponder()
+        self.calendar = CalendarHandler()
         
         self.logs = [] 
         self.logs_path = Path("logs/logs.json")
@@ -21,7 +23,7 @@ class Environment:
     def observe(self):
         return self.email_client.get_new_emails()
 
-    def act(self, email, decision, product=None):
+    def act(self, email, decision, product=None, meeting_time=None):
         action_info = ""
 
         if decision == "support":  
@@ -42,8 +44,16 @@ class Environment:
                 action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
 
         elif decision == "meeting":
-            print(f"Lägger till i kalendern: '{email['subject']}'")
-            action_info = "Lade till möte i kalendern"
+            if meeting_time:
+                start_time = datetime.fromisoformat(meeting_time)  # nu fungerar det
+            else:
+                start_time = datetime.now() + timedelta(hours=1)  # fallback
+            self.calendar.create_event(
+                subject=email['subject'],
+                body=email['body'],
+                start_time=start_time,
+                duration_minutes=30
+    )
 
         # other ger autoreply just nu. Kan ju ändras till " om ett visst tillstånd - anropa"
         else:
@@ -59,6 +69,8 @@ class Environment:
             "product": product
         })
         
+        
+    # Logga alla mail    
     def save_logs(self):
         with open(self.logs_path, "w", encoding="utf-8") as f:
             json.dump(self.logs, f, ensure_ascii=False, indent=2)

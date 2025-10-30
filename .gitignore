@@ -1,6 +1,7 @@
 # Google API credentials
 credentials.json
 token.pickle
+token_calendar.pickle
 
 .env
 .venv

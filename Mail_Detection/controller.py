@@ -15,8 +15,8 @@ class Controller:
                 break
 
             for email in emails:
-                decision, product = self.agent.decide(email) 
-                self.env.act(email, decision, product)
+                decision, product, meeting_time = self.agent.decide(email) 
+                self.env.act(email, decision, product, meeting_time)
                 self.env.save_logs()
 
 if __name__ == "__main__":
