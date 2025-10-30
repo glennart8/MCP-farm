@@ -31,4 +31,7 @@ class ComplaintsSystem:
         print(f"Skapar klagomål: '{complaint['subject']}'")
         self.complaints.append(complaint)
         self._save_complaints()
+        
+    
+        
 

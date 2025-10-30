@@ -1,10 +1,10 @@
 [
   {
-    "from": "kund6@example.com",
-    "subject": "Köpa mat",
-    "decision": "sales",
-    "action": "Vidarebefordrade till försäljning: banan",
-    "product": "banan"
+    "from": "kund1@example.com",
+    "subject": "Reklamation av produkt",
+    "decision": "support",
+    "action": "Skapade supportärende",
+    "product": "Okänd produkt"
   },
   {
     "from": "testuser@example.com",

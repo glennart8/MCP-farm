@@ -5,6 +5,10 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
 import base64
+from .agent import ComplaintAgent
+
+agent = ComplaintAgent()
+
 
 # Vilka behörigheter ska appen ha - SEND
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
@@ -30,11 +34,13 @@ class AutoResponder:
                 pickle.dump(creds, token)
         return build('gmail', 'v1', credentials=creds) # Skapar ett Gmail service-objekt
 
-    def send_auto_reply(self, email):
+
+    def create_and_send_auto_reply(self, email):
         subject = f"Autosvar: {email['subject']}"
         body = f"Hej svejs!\n\nTack för ditt mejl: {email['body']}\nVi återkommer snart."
         self._send_email(email['from'], subject, body)
-
+        
+        
     def _send_email(self, to, subject, body):
         message = MIMEText(body)
         message['to'] = to
@@ -43,3 +49,10 @@ class AutoResponder:
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode() # Kodar mejlet till base64-url (krav för Gmail API).
         self.service.users().messages().send(userId='me', body={'raw': raw}).execute() # Skickar mejlet via Gmail API
         print(f"Autosvar skickat till {to}")
+
+
+    def create_auto_response_complaint(self, email):
+        subject = f"Svar på klagomål: {email['subject']}"
+        body = agent.write_response_to_complaint(email)
+        self._send_email(email['from'], subject, body)
+        

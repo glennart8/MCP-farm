@@ -24,8 +24,12 @@ class Environment:
     def act(self, email, decision, product=None):
         action_info = ""
 
-        if decision == "support":
+        if decision == "support":  
             self.complaints.create_complaint(email)
+            
+            print("Skapar svar till klagomål")
+            self.auto.create_auto_response_complaint(email)
+            
             action_info = "Skapade supportärende"
 
         elif decision == "sales":
@@ -42,7 +46,9 @@ class Environment:
             action_info = "Lade till möte i kalendern"
 
         else:
-            self.auto.send_auto_reply(email)
+            # Låt LLM skapa autoreply utifrån meddelandet och den kontexten företaget befinner sig i
+            # agent.create_auto_reply()
+            self.auto.create_and_send_auto_reply(email)
             action_info = "Skickade autosvar"
 
         # Logga allt
