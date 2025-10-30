@@ -1,6 +1,6 @@
 INBOX = [
     # klagomål
-    {"from": "kund1@example.com", "subject": "Reklamation av produkt", "body": "Produkten gick sönder efter en dag."},
+    # {"from": "kund1@example.com", "subject": "Reklamation av produkt", "body": "Produkten gick sönder efter en dag."},
     # {"from": "kund2@example.com", "subject": "Fel leverans", "body": "Jag fick fel produkt i min beställning."},
     # {"from": "kund3@example.com", "subject": "Försenad leverans", "body": "Min leverans har inte kommit trots att det gått två veckor."},
     # {"from": "kund4@example.com", "subject": "Skadad vara", "body": "Förpackningen var trasig och produkten skadad vid leverans."},
@@ -10,12 +10,12 @@ INBOX = [
     # {"from": "kund4@example.com", "subject": "Möte på måndag", "body": "Vi behöver en presentation om kundsupporten."},
     # {"from": "kund2@example.com", "subject": "Offert på virke", "body": "Vad kostar detta?"},
     # {"from": "kund3@example.com", "subject": "Kostnad", "body": "Vad vill ni ha för denna inköpslista?"},
-    # {"from": "kund6@example.com", "subject": "Köpa mat", "body": "Jag skulle vilja köpa en banan"},
+    {"from": "kund6@example.com", "subject": "Köpa mat", "body": "Jag skulle vilja köpa en banan"},
     
     # Other för autosvar
     # from: defineras i klassen just nu, sender_email
-    {"from": "testuser@example.com", "subject": "Hej där!", "body": "Ville bara säga hej och testa ditt system"},
-    {"from": "henrikpilback@gmail.com", "subject": "Test autosvar", "body": "Hej, detta är ett test."}
+    # {"from": "testuser@example.com", "subject": "Hej där!", "body": "Ville bara säga hej och testa ditt system"},
+    # {"from": "henrikpilback@gmail.com", "subject": "Test autosvar", "body": "Hej, detta är ett test."}
 ]
 
 class EmailClient:

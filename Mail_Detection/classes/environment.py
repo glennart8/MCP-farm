@@ -45,9 +45,8 @@ class Environment:
             print(f"Lägger till i kalendern: '{email['subject']}'")
             action_info = "Lade till möte i kalendern"
 
+        # other ger autoreply just nu. Kan ju ändras till " om ett visst tillstånd - anropa"
         else:
-            # Låt LLM skapa autoreply utifrån meddelandet och den kontexten företaget befinner sig i
-            # agent.create_auto_reply()
             self.auto.create_and_send_auto_reply(email)
             action_info = "Skickade autosvar"
 

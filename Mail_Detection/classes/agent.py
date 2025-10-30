@@ -89,3 +89,39 @@ class ComplaintAgent:
             raw = raw.replace("```json", "").replace("```", "").strip()
 
         return raw
+
+class SalesAgent:
+    def __init__(self):
+        self.client = OpenAI(
+            api_key=os.getenv("GEMINI_API_KEY"),
+            base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+        )
+        
+    def write_response_to_order(self, email):
+        prompt = f"""
+        Du är en kontorsassistent som skicka bekräftelse mail om ett köp. Läs {email} och skapa ett anpassat, trevligt och kort svar.
+        
+        Innehåll: 
+        Bekräftelse på emottagande av mail och vad som önskas köpa.
+        
+        Skriv: Detta mail skickades: {now}
+        
+        Avsluta med att önska en fortsatt trevligt dag/kväll.
+        Med vänliga hälsningar,
+
+        [Köpassistenten]
+        [Det orubbliga företaget]
+        """
+
+        response = self.client.chat.completions.create(
+            model="gemini-2.5-flash",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.5,
+        )
+
+        raw = response.choices[0].message.content.strip()
+
+        if raw.startswith("```"):
+            raw = raw.replace("```json", "").replace("```", "").strip()
+
+        return raw

@@ -1,3 +1,10 @@
+from .agent import SalesAgent
+from .autoresponder import AutoResponder
+
+auto = AutoResponder()
+sales_agent = SalesAgent()
+
+
 class SalesSystem:
     
     list_of_products = {"banan": 10, "äpple": 4, "kiwi": 0, "virke": 120}
@@ -6,7 +13,7 @@ class SalesSystem:
         print(f"Vidarebefordrar till försäljning: '{email['subject']}'")
         
         if self.check_if_in_stock(product):
-            self.create_order(product)
+            self.create_order(email, product)
             self.send_confirmation_email(product)
         else:
             print(f"{product} är slut i lager!")
@@ -22,11 +29,18 @@ class SalesSystem:
             return False
         
         
-    def create_order(self, product):
-        print(f"Order skapad för: {product}")
-
+    def create_order(self, email, product):
         self.list_of_products[product] -= 1
+        sales_message = sales_agent.write_response_to_order(email)
+        self.send_auto_response_order(email, sales_message)
+
+        print(f"Order skapad för: {product}")
         
+    def send_auto_response_order(self, email, body):
+        customer_nr = 231238
+        subject = f"Orderbekräftelse för : {customer_nr}"
+        auto._send_email(email['from'], subject, body)
+        customer_nr += 1
         
     def send_confirmation_email(self, product):
         print(f"Låtsasskickar en bekräftelse för: {product}")

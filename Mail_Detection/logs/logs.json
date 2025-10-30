@@ -1,23 +1,9 @@
 [
   {
-    "from": "kund1@example.com",
-    "subject": "Reklamation av produkt",
-    "decision": "support",
-    "action": "Skapade supportärende",
-    "product": "Okänd produkt"
-  },
-  {
-    "from": "testuser@example.com",
-    "subject": "Hej där!",
-    "decision": "other",
-    "action": "Skickade autosvar",
-    "product": ""
-  },
-  {
-    "from": "henrikpilback@gmail.com",
-    "subject": "Test autosvar",
-    "decision": "other",
-    "action": "Skickade autosvar",
-    "product": null
+    "from": "kund6@example.com",
+    "subject": "Köpa mat",
+    "decision": "sales",
+    "action": "Vidarebefordrade till försäljning: banan",
+    "product": "banan"
   }
 ]

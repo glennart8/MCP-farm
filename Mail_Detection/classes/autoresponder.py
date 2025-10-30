@@ -34,13 +34,12 @@ class AutoResponder:
                 pickle.dump(creds, token)
         return build('gmail', 'v1', credentials=creds) # Skapar ett Gmail service-objekt
 
-
     def create_and_send_auto_reply(self, email):
         subject = f"Autosvar: {email['subject']}"
         body = f"Hej svejs!\n\nTack för ditt mejl: {email['body']}\nVi återkommer snart."
         self._send_email(email['from'], subject, body)
         
-        
+    
     def _send_email(self, to, subject, body):
         message = MIMEText(body)
         message['to'] = to
@@ -49,7 +48,6 @@ class AutoResponder:
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode() # Kodar mejlet till base64-url (krav för Gmail API).
         self.service.users().messages().send(userId='me', body={'raw': raw}).execute() # Skickar mejlet via Gmail API
         print(f"Autosvar skickat till {to}")
-
 
     def create_auto_response_complaint(self, email):
         subject = f"Svar på klagomål: {email['subject']}"
