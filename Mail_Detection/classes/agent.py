@@ -26,7 +26,10 @@ class Agent:
         {{
             "decision": "support" | "sales" | "meeting" | "other",
             "reason": "Kort förklaring varför"
+            "product": "T.ex. 'banan'"
         }}
+        
+        Om du väljer "sales", skicka med produkten som kunden vill köpa också.
         """
 
         response = self.client.chat.completions.create(
@@ -42,7 +45,9 @@ class Agent:
 
         try:
             data = json.loads(raw)
-            return data.get("decision", "other")
+            decision = data.get("decision", "other")
+            product = data.get("product")  # kan bli None om det inte finns
+            return decision, product
         except json.JSONDecodeError:
             print("AI-svaret gick inte att tolka:", raw)
             return "other"

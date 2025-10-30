@@ -21,28 +21,37 @@ class Environment:
     def observe(self):
         return self.email_client.get_new_emails()
 
-    def act(self, email, decision):
+    def act(self, email, decision, product=None):
         action_info = ""
 
         if decision == "support":
             self.complaints.create_complaint(email)
             action_info = "Skapade supportärende"
+
         elif decision == "sales":
-            self.sales.forward_to_sales(email)
-            action_info = "Vidarebefordrade till försäljning"
+            # Skicka med produkten om den finns
+            if product:
+                self.sales.forward_to_sales(email, product)
+                action_info = f"Vidarebefordrade till försäljning: {product}"
+            else:
+                self.sales.forward_to_sales(email)
+                action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
+
         elif decision == "meeting":
             print(f"Lägger till i kalendern: '{email['subject']}'")
             action_info = "Lade till möte i kalendern"
+
         else:
             self.auto.send_auto_reply(email)
             action_info = "Skickade autosvar"
 
-        # 👇 Lägg till i logglistan
+        # Logga allt
         self.logs.append({
             "from": email["from"],
             "subject": email["subject"],
             "decision": decision,
-            "action": action_info
+            "action": action_info,
+            "product": product
         })
         
     def save_logs(self):

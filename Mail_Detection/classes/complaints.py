@@ -28,7 +28,7 @@ class ComplaintsSystem:
             "body": email["body"],
             "status": "open"
         }
+        print(f"Skapar klagomål: '{complaint['subject']}'")
         self.complaints.append(complaint)
         self._save_complaints()
-        print(f"Skapar klagomål: '{complaint['subject']}'")
 

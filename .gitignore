@@ -1,2 +1,6 @@
+# Google API credentials
+credentials.json
+token.pickle
+
 .env
 .venv

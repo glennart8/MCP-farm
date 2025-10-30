@@ -1,9 +1,15 @@
 INBOX = [
-    {"from": "kund1@example.com", "subject": "Reklamation av produkt", "body": "Produkten gick sönder efter en dag."},
-    {"from": "kund5@example.com", "subject": "Vill köpa 100 enheter", "body": "Kan ni ge offert på 100 st?"},
-    {"from": "kund4@example.com", "subject": "Möte på måndag", "body": "Vi behöver en presentation om kundsupporten."},
-    {"from": "kund2@example.com", "subject": "Offert på virke", "body": "Vad kostar detta?"},
-    {"from": "kund3@example.com", "subject": "Kostnad", "body": "Vad vill ni ha för denna inköpslista?"},
+    # {"from": "kund1@example.com", "subject": "Reklamation av produkt", "body": "Produkten gick sönder efter en dag."},
+    # {"from": "kund5@example.com", "subject": "Vill köpa 100 enheter", "body": "Kan ni ge offert på 100 st?"},
+    # {"from": "kund4@example.com", "subject": "Möte på måndag", "body": "Vi behöver en presentation om kundsupporten."},
+    # {"from": "kund2@example.com", "subject": "Offert på virke", "body": "Vad kostar detta?"},
+    # {"from": "kund3@example.com", "subject": "Kostnad", "body": "Vad vill ni ha för denna inköpslista?"},
+    {"from": "kund6@example.com", "subject": "Köpa mat", "body": "Jag skulle vilja köpa en banan"},
+    
+    #Other
+    # from: defineras i klassen just nu, sender_email
+    {"from": "testuser@example.com", "subject": "Hej där!", "body": "Ville bara säga hej och testa ditt system"},
+    {"from": "henrikpilback@gmail.com", "subject": "Test autosvar", "body": "Hej, detta är ett test."}
 ]
 
 class EmailClient:
