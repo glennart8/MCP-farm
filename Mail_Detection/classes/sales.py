@@ -1,6 +1,7 @@
 from .agents import SalesAgent
 from .autoresponder import AutoResponder
 from .mail import MAIL_ACCOUNTS
+from .products import PRODUCTS
 
 auto = AutoResponder()
 sales_agent = SalesAgent()
@@ -8,29 +9,52 @@ sales_agent = SalesAgent()
 
 class SalesSystem:
     def __init__(self):
-        self.products = {
-            "plywood": 250,
-            "regel_45x95": 45,
-            "bräda_22x145": 120
-        }
+        self.products = PRODUCTS
+    
+    def calculate_total(self, order):
+        total = 0
+        for product, qty in order.items():
+            price = self.products.get(product, 0)
+            total += price * qty
+        return total  
     
     def create_quote(self, email):
         # Låt LLM extrahera antal per produkt
         order_details = sales_agent.extract_order_from_email(email)
+
+        print("LLM-svar:", order_details)
+
         found_items = order_details["found"]
-        not_found_items = order_details["not_found"]    
-        
-        total_price = 0
+        not_found_items = order_details["not_found"]
+        suggestions = order_details["suggestions"]
+
+        # Lägg till föreslagna produkter med rätt antal i found_items
+        for missing_product, suggested_product in suggestions.items(): # Loopa igenom varje par (saknad produkt, föreslagen produkt) i suggestions-dictionaryt
+            qty = not_found_items.get(missing_product, 0) # Hämta antalet för den saknade produkten från not_found_items, 0 som standard
+            if suggested_product in self.products: # Kolla så att den finns i sortimentet
+                # Lägg till kvantiteten för den föreslagna produkten i found_items
+                found_items[suggested_product] = found_items.get(suggested_product, 0) + qty # Om produkten redan finns, lägg till qty, annars starta på 0 + qty
+                print(f"Lägger till föreslaget alternativ: {suggested_product} ({qty} st)")
+            else:
+                print(f"Förslaget '{suggested_product}' finns inte i sortimentet och ignoreras.")
+
+        # Beräkna totalpris via calculate_total med det uppdaterade found_items
+        total_price = self.calculate_total(found_items)
+
         quote_lines = []
-
+        # Skapa offerttext för alla produkter (inklusive föreslagna)
         for product, qty in found_items.items():
-            price = self.products[product] * qty
-            total_price += price
-            quote_lines.append(f"{product}: {qty} st * {self.products[product]} :- = {price} SEK\n")
+            price = self.products[product]
+            quote_lines.append(f"{product}: {qty} st * {price} :-\n")
 
-        for product, qty in not_found_items.items():
-            quote_lines.append(f"{product}: Kunde tyvärr inte hitta produkten i sortimentet\n") # Be LLM att hitta något liknande kanske?
-        
+        # Lägg till meddelanden för saknade produkter
+        for product in not_found_items:
+            suggestion_text = suggestions.get(product)
+            if suggestion_text:
+                quote_lines.append(f"\nOBS: Vi kunde inte hitta {product}, men föreslår {suggestion_text} istället.\n")
+            else:
+                quote_lines.append(f"\nOBS: Vi kunde tyvärr inte hitta {product} i sortimentet.\n")
+
         body = (
             "Hej!\n\n"
             "Här är offerten du efterfrågade:\n\n"
@@ -42,18 +66,10 @@ class SalesSystem:
         )
 
         # Skicka mailet
-        to = email['from']
         subject = f"Offert: {email['subject']}"
-        auto._send_email(to, subject, body)
-        print(f"Offert skickad till {to}")
-        
-    def calculate_total(self, order):
-        total = 0
-        for product, qty in order.items():
-            price = self.products.get(product, 0)
-            total += price * qty
-        return total    
-    
+        auto._send_email(email['from'], subject, body)
+        print(f"Offert skickad till {email['from']}")
+            
 # -----------------------------------------------------------    
     
     def forward_to_sales(self, email, product=None, to=None):

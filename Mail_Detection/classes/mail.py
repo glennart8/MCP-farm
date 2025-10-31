@@ -30,7 +30,9 @@ INBOX = [
     # {"from": "kund1@example.com", "subject": "Reklamation av produkt", "body": "Produkten gick sönder efter en dag."},
     # {"from": "kund2@example.com", "subject": "Vill köpa", "body": "Jag skulle vilja köpa en banan?"},
     # {"from": "kund3@example.com", "subject": "Vill köpa", "body": "Kan du lämna offert på detta: 10 st plywood, 5 st regel 45x95 och 10 st bräda 22x145?"},
-    {"from": "henrikpilback@blinksbuy.com", "subject": "Vill köpa", "body": "Kan du lämna offert på detta: 10 st plywood, 5 st regel 45x95, 10 st bräda 22x145 och 3 st bräda_22x195?"},
+    {"from": "henrikpilback@blinksbuy.com",
+     "subject": "Vill köpa",
+     "body": "Kan du lämna offert på detta: 10 st plywood, 5 st regel 45x95, 10 st bräda 22x145 och en låda spik 55mm?"},
 ]
 
 

@@ -34,20 +34,6 @@ class Environment:
             print(f"Support-mail ska skickas till: {to}")
             
             action_info = f"Skapade supportärende och skickade till {to}"
-
-        # elif decision == "sales":
-        #     # Annars skulle man köra att to är mappar sales med sales i databasen och deras mail
-        #     to = "henrikpilback@blinksbuy.com"  # sales-mail
-                
-        #     # Skicka med produkten om den finns
-        #     if product:
-        #         # TODO: Kolla pris - återge pris, typ offert, ha en lista med produkt, pris, antal
-        #         self.sales.forward_to_sales(email, product, to)
-        #         action_info = f"Vidarebefordrade till försäljning: {product}"
-        #     else:
-        #         # TODO: Separat svar för att klargöra vilka produkter som menas
-        #         self.sales.forward_to_sales(email)
-        #         action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
         
         elif decision == "sales":
             if product:

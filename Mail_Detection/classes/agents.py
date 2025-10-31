@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from datetime import datetime
+from .products import PRODUCTS
 
 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 load_dotenv()
@@ -109,30 +110,34 @@ class SalesAgent(BaseAgent):
         return self.run_llm(prompt)
     
 
-    def extract_order_from_email(self, email):        
+    def extract_order_from_email(self, email):
         prompt = f"""
+        Du är en byggvaruexpert som hjälper till att tolka kundbeställningar.
         Läs följande kundmail och returnera en JSON med antal per produkt.
-        Endast produkter från sortimentet: plywood, regel_45x95, bräda_22x145.
-        Om det efterfrågas något som inte finns i sortimentet, inkludera det under 'not_found'.
-
+        Använd dig av det som finns i sortimentet: {PRODUCTS}
+        
+        Om något inte finns i sortimentet, inkludera det under 'not_found', 
+        och ge ett likvärdigt produktnamn under 'suggestions' kopplat till den saknade produkten.
+        
         Mail:
         {email['body']}
-
+        
         Svara ENBART med JSON, t.ex.:
         {{
             "found": {{"plywood": 2, "bräda_22x145": 5}},
-            "not_found": {{"träskiva": 1}}
+            "not_found": {{"isolering_glasull": 1}},
+            "suggestions": {{"isolering_glasull": "träfiberisolering"}}
         }}
         """
         
         raw = self.run_llm(prompt)
         try:
             data = json.loads(raw)
-            # Se till att alltid ha båda nycklarna
             return {
                 "found": data.get("found", {}),
-                "not_found": data.get("not_found", {})
+                "not_found": data.get("not_found", {}),
+                "suggestions": data.get("suggestions", {})
             }
         except json.JSONDecodeError:
             print("Kunde inte tolka LLM-svar:", raw)
-            return {"found": {}, "not_found": {}}
+            return {"found": {}, "not_found": {}, "suggestions": {}}
