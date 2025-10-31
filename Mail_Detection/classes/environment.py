@@ -50,11 +50,9 @@ class Environment:
         #         action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
         
         elif decision == "sales":
-            to = "henrikpilback@blinksbuy.com"  # sales-mail
-
             if product:
                 # Skicka offert baserat på produkt(er) i mailet
-                self.sales.create_quote(email, to)
+                self.sales.create_quote(email)
                 action_info = f"Offert skickad för produkter från mail"
             else:
                 # Om LLM inte hittade produkter, skicka mail om att klargöra

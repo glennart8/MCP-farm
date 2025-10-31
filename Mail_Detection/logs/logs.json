@@ -1,16 +1,9 @@
 [
   {
-    "from": "kund3@example.com",
+    "from": "henrikpilback@blinksbuy.com",
     "subject": "Vill köpa",
     "decision": "sales",
     "action": "Offert skickad för produkter från mail",
-    "product": "plywood, regel 45x95, bräda 22x145"
-  },
-  {
-    "from": "kund3@example.com",
-    "subject": "Vill köpa",
-    "decision": "sales",
-    "action": "Offert skickad för produkter från mail",
-    "product": "10 st plywood, 5 st regel 45x95, 10 st bräda 22x145, 3 st bräda_22x195"
+    "product": "plywood, regel 45x95, bräda 22x145, bräda_22x195"
   }
 ]

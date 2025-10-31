@@ -14,7 +14,7 @@ class SalesSystem:
             "bräda_22x145": 120
         }
     
-    def create_quote(self, email, to=None):
+    def create_quote(self, email):
         # Låt LLM extrahera antal per produkt
         order_details = sales_agent.extract_order_from_email(email)
         found_items = order_details["found"]
@@ -42,7 +42,7 @@ class SalesSystem:
         )
 
         # Skicka mailet
-        to = to
+        to = email['from']
         subject = f"Offert: {email['subject']}"
         auto._send_email(to, subject, body)
         print(f"Offert skickad till {to}")
