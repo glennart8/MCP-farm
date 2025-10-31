@@ -3,7 +3,7 @@ import pickle
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
-
+from datetime import datetime, timedelta
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
@@ -26,14 +26,12 @@ class CalendarHandler:
                 pickle.dump(creds, token)
         return build('calendar', 'v3', credentials=creds)
 
-from datetime import datetime, timedelta
-
 class CalendarHandler(CalendarHandler): 
     def create_event(self, subject, body, start_time, duration_minutes=60):
         end_time = start_time + timedelta(minutes=duration_minutes)
         event = {
-            'summary': subject,       # <--- rätt fält för titel
-            'description': body,      # <--- rätt fält för beskrivning
+            'summary': subject,       # <--- måste heta så
+            'description': body,      # <--- måste heta så
             'start': {
                 'dateTime': start_time.isoformat(),
                 'timeZone': 'Europe/Stockholm',

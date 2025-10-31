@@ -9,7 +9,6 @@ from .agents import ComplaintAgent
 
 agent = ComplaintAgent()
 
-
 # Vilka behörigheter ska appen ha - SEND
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
@@ -47,10 +46,11 @@ class AutoResponder:
         message['subject'] = subject
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode() # Kodar mejlet till base64-url (krav för Gmail API).
         self.service.users().messages().send(userId='me', body={'raw': raw}).execute() # Skickar mejlet via Gmail API
-        print(f"Autosvar skickat till {to}")
 
-    def create_auto_response_complaint(self, email):
+    def create_auto_response_complaint(self, email, to = None):
+        to = to or email['from']
+        
         subject = f"Svar på klagomål: {email['subject']}"
         body = agent.write_response_to_complaint(email)
-        self._send_email(email['from'], subject, body)
+        self._send_email(to, subject, body)
         

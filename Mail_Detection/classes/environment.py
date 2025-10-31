@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from classes.complaints import ComplaintsSystem
-from classes.mail import EmailClient
+from classes.mail import EmailClient, MAIL_ACCOUNTS
 from classes.sales import SalesSystem
 from classes.autoresponder import AutoResponder
 from classes.calendar import CalendarHandler
@@ -28,18 +28,24 @@ class Environment:
 
         if decision == "support":  
             self.complaints.create_complaint(email)
+    
+            to = "henrikpilback@gmail.com"  # support-mail
+            self.auto.create_auto_response_complaint(email, to)
+            print(f"Support-mail ska skickas till: {to}")
             
-            print("Skapar svar till klagomål (gemini)")
-            self.auto.create_auto_response_complaint(email)
-            
-            action_info = "Skapade supportärende"
+            action_info = f"Skapade supportärende och skickade till {to}"
 
         elif decision == "sales":
+            # Annars skulle man köra att to är mappar sales med sales i databasen och deras mail
+            to = "henrikpilback@blinksbuy.com"  # sales-mail
+                
             # Skicka med produkten om den finns
             if product:
-                self.sales.forward_to_sales(email, product)
+                # TODO: Kolla pris - återge pris, typ offert, ha en lista med produkt, pris, antal
+                self.sales.forward_to_sales(email, product, to)
                 action_info = f"Vidarebefordrade till försäljning: {product}"
             else:
+                # TODO: Separat svar för att klargöra vilka produkter som menas
                 self.sales.forward_to_sales(email)
                 action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
 
