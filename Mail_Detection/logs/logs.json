@@ -1,16 +1,16 @@
 [
   {
-    "from": "kund1@example.com",
-    "subject": "Reklamation av produkt",
-    "decision": "support",
-    "action": "Skapade supportärende och skickade till henrikpilback@gmail.com",
-    "product": "unknown"
-  },
-  {
-    "from": "kund2@example.com",
+    "from": "kund3@example.com",
     "subject": "Vill köpa",
     "decision": "sales",
-    "action": "Vidarebefordrade till försäljning: banan",
-    "product": "banan"
+    "action": "Offert skickad för produkter från mail",
+    "product": "plywood, regel 45x95, bräda 22x145"
+  },
+  {
+    "from": "kund3@example.com",
+    "subject": "Vill köpa",
+    "decision": "sales",
+    "action": "Offert skickad för produkter från mail",
+    "product": "10 st plywood, 5 st regel 45x95, 10 st bräda 22x145, 3 st bräda_22x195"
   }
 ]

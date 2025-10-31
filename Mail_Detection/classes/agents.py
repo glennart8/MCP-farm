@@ -107,3 +107,32 @@ class SalesAgent(BaseAgent):
         """
 
         return self.run_llm(prompt)
+    
+
+    def extract_order_from_email(self, email):        
+        prompt = f"""
+        Läs följande kundmail och returnera en JSON med antal per produkt.
+        Endast produkter från sortimentet: plywood, regel_45x95, bräda_22x145.
+        Om det efterfrågas något som inte finns i sortimentet, inkludera det under 'not_found'.
+
+        Mail:
+        {email['body']}
+
+        Svara ENBART med JSON, t.ex.:
+        {{
+            "found": {{"plywood": 2, "bräda_22x145": 5}},
+            "not_found": {{"träskiva": 1}}
+        }}
+        """
+        
+        raw = self.run_llm(prompt)
+        try:
+            data = json.loads(raw)
+            # Se till att alltid ha båda nycklarna
+            return {
+                "found": data.get("found", {}),
+                "not_found": data.get("not_found", {})
+            }
+        except json.JSONDecodeError:
+            print("Kunde inte tolka LLM-svar:", raw)
+            return {"found": {}, "not_found": {}}

@@ -35,19 +35,31 @@ class Environment:
             
             action_info = f"Skapade supportärende och skickade till {to}"
 
-        elif decision == "sales":
-            # Annars skulle man köra att to är mappar sales med sales i databasen och deras mail
-            to = "henrikpilback@blinksbuy.com"  # sales-mail
+        # elif decision == "sales":
+        #     # Annars skulle man köra att to är mappar sales med sales i databasen och deras mail
+        #     to = "henrikpilback@blinksbuy.com"  # sales-mail
                 
-            # Skicka med produkten om den finns
+        #     # Skicka med produkten om den finns
+        #     if product:
+        #         # TODO: Kolla pris - återge pris, typ offert, ha en lista med produkt, pris, antal
+        #         self.sales.forward_to_sales(email, product, to)
+        #         action_info = f"Vidarebefordrade till försäljning: {product}"
+        #     else:
+        #         # TODO: Separat svar för att klargöra vilka produkter som menas
+        #         self.sales.forward_to_sales(email)
+        #         action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
+        
+        elif decision == "sales":
+            to = "henrikpilback@blinksbuy.com"  # sales-mail
+
             if product:
-                # TODO: Kolla pris - återge pris, typ offert, ha en lista med produkt, pris, antal
-                self.sales.forward_to_sales(email, product, to)
-                action_info = f"Vidarebefordrade till försäljning: {product}"
+                # Skicka offert baserat på produkt(er) i mailet
+                self.sales.create_quote(email, to)
+                action_info = f"Offert skickad för produkter från mail"
             else:
-                # TODO: Separat svar för att klargöra vilka produkter som menas
-                self.sales.forward_to_sales(email)
-                action_info = "Vidarebefordrade till försäljning (ingen produkt angiven)"
+                # Om LLM inte hittade produkter, skicka mail om att klargöra
+                self.sales.create_quote(email)  # eller separat logik för "okänd produkt"
+                action_info = "Offert skickad (okända produkter, LLM försöker extrahera)"
 
         elif decision == "meeting":
             if meeting_time:

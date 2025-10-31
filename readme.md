@@ -59,7 +59,8 @@ Detta projekt är en **intelligent assistent** för att hantera inkommande e-pos
 - [x] Generera autogenererade svar för klagomål och försäljning.  
 - [x] Hantera fallback-lösningar när tidpunkt eller produkt inte anges.  
 
-
+## TODO
+- [] Kräv att ett autogenererat mail granskas innan det skickas till kund, t.ex. vid offertbegäran
 
 # MCP-farm – Gårds- och Småbruksassistent
 

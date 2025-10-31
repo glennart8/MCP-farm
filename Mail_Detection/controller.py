@@ -11,7 +11,7 @@ class Controller:
         while True:
             emails = self.env.observe()
             if not emails:
-                print("Inga fler mejl att behandla.")
+                print("Inga fler mail att behandla.")
                 break
 
             for email in emails:
