@@ -13,8 +13,12 @@ class SalesSystem:
         print(f"Vidarebefordrar till försäljning: '{email['subject']}'")
         
         if self.check_if_in_stock(product):
-            self.create_order(email, product)
-            self.send_confirmation_email(product)
+            try:
+                self.create_order(email, product)
+                self.send_confirmation_email(product)
+                print(f"Order skapad och bekräftelse skickad.")
+            except Exception as e:
+                print(f"Ett fel uppstod vid orderhantering.: {e}")
         else:
             print(f"{product} är slut i lager!")
         

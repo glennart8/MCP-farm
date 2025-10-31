@@ -29,7 +29,7 @@ class Environment:
         if decision == "support":  
             self.complaints.create_complaint(email)
             
-            print("Skapar svar till klagomål")
+            print("Skapar svar till klagomål (gemini)")
             self.auto.create_auto_response_complaint(email)
             
             action_info = "Skapade supportärende"
