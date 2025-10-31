@@ -7,8 +7,6 @@ from datetime import datetime
 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 load_dotenv()
 
-
-
 class BaseAgent:
     def __init__(self):
         self.client = OpenAI(
@@ -16,6 +14,31 @@ class BaseAgent:
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
         )
 
+    def run_llm(self, prompt, temperature=0.5):
+        response = self.client.chat.completions.create(
+            model="gemini-2.5-flash",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=temperature
+        )
+
+        raw = response.choices[0].message.content.strip()
+
+        if raw.startswith("```"):
+            raw = raw.replace("```json", "").replace("```", "").strip()
+
+        return raw
+
+    def run_llm_json(self, prompt, temperature=0.3):
+        """
+        Kör ett prompt som ska returnera JSON.
+        Returnerar Python-dict, eller None om parsing misslyckas.
+        """
+        raw = self.run_llm(prompt, temperature=temperature)
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            print("AI-svaret gick inte att tolka:", raw)
+            return None
 
 class SupervisorAgent(BaseAgent):
     def decide(self, email):
@@ -41,27 +64,12 @@ class SupervisorAgent(BaseAgent):
             Extrahera datum och tid för mötet i ISO-format (YYYY-MM-DDTHH:MM:SS) och returnera ENBART som JSON:
             {{"decision": "meeting", "meeting_time": "2025-11-01T10:00:00"}}
         """
-
-        response = self.client.chat.completions.create(
-            model="gemini-2.5-flash",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3,
-        )
-
-        raw = response.choices[0].message.content.strip()
-
-        if raw.startswith("```"):
-            raw = raw.replace("```json", "").replace("```", "").strip()
-
-        try:
-            data = json.loads(raw)
-            decision = data.get("decision", "other")
-            product = data.get("product")  # kan bli None om det inte finns
-            meeting_time = data.get("meeting_time")  # kan vara None
-            return decision, product, meeting_time
-        except json.JSONDecodeError:
-            print("AI-svaret gick inte att tolka:", raw)
-            return "other"
+        
+        data = self.run_llm_json(prompt)
+        if not data:
+            return "other", None, None
+        return data.get("decision", "other"), data.get("product"), data.get("meeting_time")
+    
 
 class ComplaintAgent(BaseAgent):
     def write_response_to_complaint(self, email):
@@ -79,19 +87,9 @@ class ComplaintAgent(BaseAgent):
         [Kontorsassistenten]
         [Det orubbliga företaget]
         """
+        
+        return self.run_llm(prompt)
 
-        response = self.client.chat.completions.create(
-            model="gemini-2.5-flash",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.5,
-        )
-
-        raw = response.choices[0].message.content.strip()
-
-        if raw.startswith("```"):
-            raw = raw.replace("```json", "").replace("```", "").strip()
-
-        return raw
 
 class SalesAgent(BaseAgent):
     def write_response_to_order(self, email):
@@ -108,15 +106,4 @@ class SalesAgent(BaseAgent):
         Skriv svaret på ett sätt som kan skickas direkt till kunden.
         """
 
-        response = self.client.chat.completions.create(
-            model="gemini-2.5-flash",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.5,
-        )
-
-        raw = response.choices[0].message.content.strip()
-
-        if raw.startswith("```"):
-            raw = raw.replace("```json", "").replace("```", "").strip()
-
-        return raw
+        return self.run_llm(prompt)
