@@ -1,4 +1,4 @@
-from .agent import SalesAgent
+from .agents import SalesAgent
 from .autoresponder import AutoResponder
 
 auto = AutoResponder()
@@ -15,7 +15,6 @@ class SalesSystem:
         if self.check_if_in_stock(product):
             try:
                 self.create_order(email, product)
-                self.send_confirmation_email(product)
                 print(f"Order skapad och bekräftelse skickad.")
             except Exception as e:
                 print(f"Ett fel uppstod vid orderhantering.: {e}")
@@ -46,5 +45,3 @@ class SalesSystem:
         auto._send_email(email['from'], subject, body)
         customer_nr += 1
         
-    def send_confirmation_email(self, product):
-        print(f"Skickar en bekräftelse för: {product}")

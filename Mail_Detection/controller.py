@@ -1,11 +1,11 @@
-from classes.agent import Agent
+from classes.agents import SupervisorAgent
 from classes.environment import Environment
 
 class Controller:
     """MCP-cykeln."""
     def __init__(self):
         self.env = Environment()
-        self.agent = Agent()
+        self.agent = SupervisorAgent()
 
     def run(self):
         while True:

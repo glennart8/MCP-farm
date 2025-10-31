@@ -8,13 +8,16 @@ now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 load_dotenv()
 
 
-class Agent:
+
+class BaseAgent:
     def __init__(self):
         self.client = OpenAI(
             api_key=os.getenv("GEMINI_API_KEY"),
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
         )
 
+
+class SupervisorAgent(BaseAgent):
     def decide(self, email):
         prompt = f"""
         Du är en kontorsassistent. Läs följande e-post och bestäm vilken kategori den tillhör.
@@ -60,13 +63,7 @@ class Agent:
             print("AI-svaret gick inte att tolka:", raw)
             return "other"
 
-class ComplaintAgent:
-    def __init__(self):
-        self.client = OpenAI(
-            api_key=os.getenv("GEMINI_API_KEY"),
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-        )
-        
+class ComplaintAgent(BaseAgent):
     def write_response_to_complaint(self, email):
         prompt = f"""
         Du är en kontorsassistent som besvarar klagomål via mail. Läs {email} och skapa ett anpassat, trevligt och kort svar.
@@ -96,13 +93,7 @@ class ComplaintAgent:
 
         return raw
 
-class SalesAgent:
-    def __init__(self):
-        self.client = OpenAI(
-            api_key=os.getenv("GEMINI_API_KEY"),
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-        )
-        
+class SalesAgent(BaseAgent):
     def write_response_to_order(self, email):
         prompt = f"""
         Du är en vänlig kontorsassistent som skriver ett kvitto/bekräftelse på ett köp. 

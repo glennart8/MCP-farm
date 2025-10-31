@@ -5,7 +5,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
 import base64
-from .agent import ComplaintAgent
+from .agents import ComplaintAgent
 
 agent = ComplaintAgent()
 
