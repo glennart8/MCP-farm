@@ -1,9 +1,9 @@
 [
   {
     "from": "henrikpilback@blinksbuy.com",
-    "subject": "Vill köpa",
+    "subject": "Offertförfrågan byggmaterial",
     "decision": "sales",
     "action": "Offert skickad för produkter från mail",
-    "product": "plywood, regel 45x95, bräda 22x145, spik 55mm"
+    "product": "byggmaterial"
   }
 ]

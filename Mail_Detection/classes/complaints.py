@@ -21,7 +21,7 @@ class ComplaintsSystem:
         with open(self.file_path, "w", encoding="utf-8") as f:
             json.dump(self.complaints, f, ensure_ascii=False, indent=2)
 
-    def create_complaint(self, email):
+    def log_complaint(self, email):
         complaint = {
             "from": email["from"],
             "subject": email["subject"],

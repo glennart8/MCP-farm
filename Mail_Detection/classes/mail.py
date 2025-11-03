@@ -28,16 +28,59 @@ MAIL_ACCOUNTS = [
 
 INBOX = [
     # {"from": "kund1@example.com", "subject": "Reklamation av produkt", "body": "Produkten gick sönder efter en dag."},
+    
+    
+    
+    # --- KÖP ---
+    
     # {"from": "kund2@example.com", "subject": "Vill köpa", "body": "Jag skulle vilja köpa en banan?"},
     # {"from": "kund3@example.com", "subject": "Vill köpa", "body": "Kan du lämna offert på detta: 10 st plywood, 5 st regel 45x95 och 10 st bräda 22x145?"},
-    {"from": "henrikpilback@blinksbuy.com",
-     "subject": "Vill köpa",
-     "body": "Kan du lämna offert på detta: 10 st plywood, 5 st regel 45x95, 10 st bräda 22x145 och en låda spik 55mm?"},
+    # {"from": "henrikpilback@blinksbuy.com",
+    #  "subject": "Vill köpa",
+    #  "body": "Kan du lämna offert på detta: 10 st plywood, 5 st regel 45x95, 10 st bräda 22x145 och en låda spik 55mm?"},
+    
+    
+#     {
+#     "from": "henrikpilback@blinksbuy.com",
+#     "subject": "Offertförfrågan byggmaterial",
+#     "body": (
+#         "Hej!\n\n"
+#         "Jag skulle vilja få en offert på följande material:\n"
+#         "- 12 st regel 45x95\n"
+#         "- 8 st bräda 22x145\n"
+#         "- 6 st plywood 15mm\n"
+#         "- 2 rullar vindpapp\n"
+#         "- 1 låda spiklåda 70mm\n"
+#         "- 3 paket isolering mineralull 95mm\n\n"
+#         "Tack på förhand!\n"
+#         "Mvh svenne banan"
+#     )
+# }
+   
+    {
+"from": "henrikpilback@blinksbuy.com",
+"subject": "Offertförfrågan byggmaterial",
+"body": (
+    "Hej!\n\n"
+    "Jag skulle vilja få en offert på följande material:\n"
+    "- 12 st regel 45x195\n"
+    "- 50 st bräda 22x170\n"
+    "- 6 st plywood 12 mm\n"
+    "- 2 rullar vindduk\n"
+    "- 1 låda spik 70mm\n"
+    "- 3 paket isolering träfiber 95mm\n\n"
+    "Tack på förhand!\n"
+    "Mvh svenne banan 2"
+)
+}
+
+# {"from": "kund144@example.com", "subject": "Vad är klockan", "body": "Ibland undrar jag varför vi ens har en klocka, vad fyller den för funktion?"},   # Ger other (autosvar)
+# {"from": "kund146@example.com", "subject": "Att handla är bra", "body": "Det vore bra med spik, massor av spik, då kan man ju spika, kanske en låda?"},    # Ger offert :)
 ]
 
 
 class EmailClient:
-       
+    
     def get_new_emails(self):
         if INBOX:
             return [INBOX.pop(0)]
