@@ -53,14 +53,17 @@ class Environment:
                 start_time = datetime.fromisoformat(meeting_time) 
             else:
                 start_time = datetime.now() + timedelta(hours=1)
+                action_info="Ett möte har lagts till"
             self.calendar.create_event(
                 subject=email['subject'],
                 body=email['body'],
                 start_time=start_time,
-                duration_minutes=30)
+                duration_minutes=30,
+                action_info=action_info)
             
         elif decision == "estimate":
             self.sales.create_estimate_email(email)   
+            action_info="Uppskattning av virkesåtgång gjord."
 
         # Other: ger autosvar just nu. Kan ju ändras till " om ett visst tillstånd - anropa"
         else:
@@ -69,6 +72,7 @@ class Environment:
 
         # Logga allt
         self.logs.append({
+            "time":datetime.now(),
             "from": email["from"],
             "subject": email["subject"],
             "decision": decision,
