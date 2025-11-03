@@ -46,6 +46,12 @@ class SupervisorAgent(BaseAgent):
         prompt = f"""
         Du är en kontorsassistent. Läs följande e-post och bestäm vilken kategori den tillhör.
 
+        "support" - hanterar klagomål
+        "sales" - hanterar offerter och köp
+        "meeting" - hanterar möten
+        "estimate" - hanterar uppsksattning av virkesåtgång för byggprojekt.
+        "other" - övriga ärenden som ej kan klassificeras enligt ovan
+    
         E-post:
         Avsändare: {email['from']}
         Ämne: {email['subject']}
@@ -53,7 +59,7 @@ class SupervisorAgent(BaseAgent):
 
         Välj EN kategori och svara ENBART med JSON:
         {{
-            "decision": "support" | "sales" | "meeting" | "other",
+            "decision": "support" | "sales" | "meeting" | "estimate" | "other",
             "reason": "Kort förklaring varför"
             "product": "T.ex. 'banan'"
             "meeting_time": "YYYY-MM-DDTHH:MM:SS"  # om mailet är ett möte
@@ -141,3 +147,38 @@ class SalesAgent(BaseAgent):
         except json.JSONDecodeError:
             print("Kunde inte tolka LLM-svar:", raw)
             return {"found": {}, "not_found": {}, "suggestions": {}}
+        
+    #  UPPSKATTA ÅTGÅNG (ESTIMATE)
+    def estimate_materials_text(self, description: str):
+        prompt = f"""
+        Du är en byggnadsteknisk assistent. Läs följande beskrivning av ett byggprojekt
+        och skriv en användarvänlig uppskattning av materialåtgången som kan skickas
+        direkt som ett mail till kunden.
+
+        Beskrivning: {description}
+
+        Använd detta produktsortiment: {PRODUCTS}
+
+        Antag följande riktlinjer:
+        - Inga hälsningsfraser
+        - Ytterväggar består av regel 45x145 cc600, beklädda med 22x145 panel.
+        - Bärande väggar ca 2,5 m höga, ytterväggslängd ≈ 4 × (yta ** 0.5).
+        - Plywood används 1 skiva per 1,2 m² väggyta.
+        - Isolering motsvarar väggytan i m².
+        - Undertak ≈ byggytan i m², använd råspontlucka.
+        - Inkludera längd/bredd/kvm i resultaten
+        - Avsluta inte med artigheter utan sluta när du presenterat antalet av varje produkt.
+
+        Skriv resultatet i punktlista med antal per produkt, t.ex.:
+        Yttervägg
+        - regel_45x145: 76 st
+        - bräda_22x145: 146 st
+        - "spiklåda_70mm": 2 st
+        Tak
+        - regel_45x145: 20 st
+        
+        Innervägg
+        - plywood_12mm: 119 st
+        - "skruvlåda_trä_4x40": 2 st
+        """
+        return self.run_llm(prompt)
