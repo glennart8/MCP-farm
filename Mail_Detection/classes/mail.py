@@ -57,25 +57,61 @@ INBOX = [
 #     )
 # }
    
-    {
-"from": "henrikpilback@blinksbuy.com",
-"subject": "Offertförfrågan byggmaterial",
-"body": (
-    "Hej!\n\n"
-    "Jag skulle vilja få en offert på följande material:\n"
-    "- 12 st regel 45x195\n"
-    "- 50 st bräda 22x170\n"
-    "- 6 st plywood 12 mm\n"
-    "- 2 rullar vindduk\n"
-    "- 1 låda spik 70mm\n"
-    "- 3 paket isolering träfiber 95mm\n\n"
-    "Tack på förhand!\n"
-    "Mvh svenne banan 2"
-)
-}
+#     {
+# "from": "henrikpilback@blinksbuy.com",
+# "subject": "Offertförfrågan byggmaterial",
+# "body": (
+#     "Hej!\n\n"
+#     "Jag skulle vilja få en offert på följande material:\n"
+#     "- 12 st regel 45x195\n"
+#     "- 50 st bräda 22x170\n"
+#     "- 6 st plywood 12 mm\n"
+#     "- 2 rullar vindduk\n"
+#     "- 1 låda spik 70mm\n"
+#     "- 3 paket isolering träfiber 95mm\n\n"
+#     "Tack på förhand!\n"
+#     "Mvh svenne banan 2"
+# )
+# }
 
 # {"from": "kund144@example.com", "subject": "Vad är klockan", "body": "Ibland undrar jag varför vi ens har en klocka, vad fyller den för funktion?"},   # Ger other (autosvar)
 # {"from": "kund146@example.com", "subject": "Att handla är bra", "body": "Det vore bra med spik, massor av spik, då kan man ju spika, kanske en låda?"},    # Ger offert :)
+
+# # UPPSKATTNING AV ÅTGÅNG
+# {
+#     "from": "henrikpilback@blinksbuy.com",
+#     "subject": "Materialberäkning för stomme",
+#     "body": "Hej! Jag planerar att bygga en stomme på cirka 120 kvm, en våning hög. Kan du uppskatta hur mycket virke, isolering och skivmaterial som behövs?"
+# },
+
+# # 1. Attefallshus
+# {
+#     "from": "henrikpilback@blinksbuy.com",
+#     "subject": "Materialberäkning för attefallshus",
+#     "body": "Hej! Jag planerar att bygga ett attefallshus på 25 kvm. Kan du uppskatta hur mycket virke, isolering, skivmaterial och panel som behövs?"
+# },
+
+# # # 2. Altan
+# {
+#     "from": "henrikpilback@blinksbuy.com",
+#     "subject": "Offert på altanbygge",
+#     "body": "Hej! Jag vill bygga en altan på ca 30 kvm. Kan ni beräkna hur mycket virke och skruv som krävs?"
+# },
+
+# 3. Garage
+{
+    "from": "henrikpilback@blinksbuy.com",
+    "subject": "Virke för garage",
+    "body": "Hej! Planerar att bygga ett garage på 40 kvm. Kan du ge en uppskattning på virke, isolering och skivmaterial som behövs?"
+},
+
+# 4. Storstomme för villa
+{
+    "from": "henrikpilback@blinksbuy.com",
+    "subject": "Materialåtgång för villastomme",
+    "body": "Hej! Vi ska bygga en villa på 150 kvm, två våningar. Kan ni räkna ut hur mycket virke, isolering, skivmaterial och panel som behövs?"
+},
+
 ]
 
 
@@ -85,6 +121,3 @@ class EmailClient:
         if INBOX:
             return [INBOX.pop(0)]
         return []
-    
-
-

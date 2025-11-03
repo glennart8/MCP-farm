@@ -5,13 +5,14 @@ from .products import PRODUCTS
 from datetime import datetime
 import json
 
-auto = AutoResponder()
+# auto = AutoResponder()
 sales_agent = SalesAgent()
 
 
 class SalesSystem:
     def __init__(self):
         self.products = PRODUCTS
+        self.auto = AutoResponder()
     
     def calculate_total(self, order):
         total = 0
@@ -69,7 +70,7 @@ class SalesSystem:
 
         # Skicka mailet
         subject = f"Offert: {email['subject']}"
-        auto._send_email(email['from'], subject, body)
+        self.auto._send_email(email['from'], subject, body)
         print(f"Offert skickad till {email['from']}")
         
         
@@ -118,8 +119,33 @@ class SalesSystem:
             f"Bengtssons trävaror"
         )
 
-        auto._send_email(customer, subject, body)
+        self.auto._send_email(customer, subject, body)
         print(f"Uppföljningsmail skickat till {customer}")
+        
+        
+    # ----- UPPSKATTA VIRKESÅTGÅNG MED GEMINI-------
+    def create_estimate(self, email):
+        description = email["body"] # Läs in mail
+        
+        # Generera text för autosvar, inte JSON
+        estimate_text = sales_agent.estimate_materials_text(description)
+
+        if not estimate_text:
+            print("Kunde inte beräkna materialåtgång.")
+            return
+
+        body = (
+            "Hej\n\n"
+            f"{estimate_text}\n\n"
+            "Vill du att vi tar fram en officiell offert baserat på dessa mängder?\n\n"
+            "Vänliga hälsningar,\n"
+            "Bengtssons trävaror"
+        )
+
+        subject = f"Uppskattad materialåtgång: {email['subject']}"
+        self.auto._send_email(email['from'], subject, body)
+        print(f"Materialuppskattning skickad till {email['from']}")
+        
                 
 # ------------------- Vidarebeordra, kolla saldo, skapa kvitto -----------------------------    
     

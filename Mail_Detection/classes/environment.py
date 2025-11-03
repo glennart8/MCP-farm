@@ -57,8 +57,10 @@ class Environment:
                 subject=email['subject'],
                 body=email['body'],
                 start_time=start_time,
-                duration_minutes=30
-    )
+                duration_minutes=30)
+            
+        elif decision == "estimate":
+            self.sales.create_estimate(email)   
 
         # Other: ger autosvar just nu. Kan ju ändras till " om ett visst tillstånd - anropa"
         else:
