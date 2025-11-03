@@ -93,6 +93,7 @@ class SalesSystem:
             
         print("Offert sparad")       
 
+    # ------- KOLLA OM UPPFÖLJNINGSMAIL SKA SKICKAS ----------
     # Kollar om followed_up är False och om det har gått en dag - då skickas uppföljningsmail
     def check_for_followups(self):
         with open("logs/sent_quotes.json", "r", encoding="utf-8") as f:
@@ -105,7 +106,7 @@ class SalesSystem:
                 self.send_followup(quote)
                 quote["followed_up"] = True
                 
-    # Skicka uppföljningsmail            
+    # ------ SKICKA UPPFÖLJNINGSMAIL ------         
     def send_followup(self, quote):
         customer = quote["customer"]
         products = ", ".join(quote["products"].keys())
@@ -123,20 +124,40 @@ class SalesSystem:
         print(f"Uppföljningsmail skickat till {customer}")
         
         
-    # ----- UPPSKATTA VIRKESÅTGÅNG MED GEMINI-------
-    def create_estimate(self, email):
-        description = email["body"] # Läs in mail
-        
-        # Generera text för autosvar, inte JSON
-        estimate_text = sales_agent.estimate_materials_text(description)
+        # ----- BERÄKNA VIRKESÅTGÅNG MED GEMINI -------
+    def estimate_materials_for_email(self, email):
+        description = email["body"]  # Läs in mail
 
-        if not estimate_text:
+        # Får dict med antal per produkt
+        estimated_materials = sales_agent.estimate_materials_json(description)
+        
+        if not estimated_materials:
             print("Kunde inte beräkna materialåtgång.")
+            return None
+
+        return estimated_materials
+
+    # ----- SKAPA MAIL UTIFRÅN BERÄKNING -------
+    def create_estimate_email(self, email):
+        estimated_materials = self.estimate_materials_for_email(email)
+        if not estimated_materials:
             return
 
+        # Offertexten
+        quote_lines = [
+            f"{prod}: {qty} st * {self.products[prod][0]} :-"  # [0] = pris
+            for prod, qty in estimated_materials.items()
+            if prod in self.products
+        ]
+
+        # pga tuple för isolering mm, ta första elementet
+        total_price = sum(self.products[prod][0] * qty for prod, qty in estimated_materials.items() if prod in self.products)
+
         body = (
-            "Hej\n\n"
-            f"{estimate_text}\n\n"
+            f"Hej\n\n"
+            f"Utifrån din beskrivning har vi uppskattat följande materialåtgång:\n\n"
+            f"{chr(10).join(quote_lines)}\n\n"
+            f"Uppskattat totalpris: {total_price} kr\n\n"
             "Vill du att vi tar fram en officiell offert baserat på dessa mängder?\n\n"
             "Vänliga hälsningar,\n"
             "Bengtssons trävaror"

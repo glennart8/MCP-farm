@@ -98,12 +98,12 @@ INBOX = [
 #     "body": "Hej! Jag vill bygga en altan på ca 30 kvm. Kan ni beräkna hur mycket virke och skruv som krävs?"
 # },
 
-# 3. Garage
-{
-    "from": "henrikpilback@blinksbuy.com",
-    "subject": "Virke för garage",
-    "body": "Hej! Planerar att bygga ett garage på 40 kvm. Kan du ge en uppskattning på virke, isolering och skivmaterial som behövs?"
-},
+# # 3. Garage
+# {
+#     "from": "henrikpilback@blinksbuy.com",
+#     "subject": "Virke för garage",
+#     "body": "Hej! Planerar att bygga ett garage på 40 kvm. Kan du ge en uppskattning på virke, isolering och skivmaterial som behövs?"
+# },
 
 # 4. Storstomme för villa
 {
